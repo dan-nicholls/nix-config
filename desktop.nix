@@ -35,7 +35,13 @@
 	"app-hotkey-2" = [];
 	"app-hotkey-3" = [];
 	"app-hotkey-4" = [];
+
+	"dock-position" = "BOTTOM";
+	"autohide" = true;
+	"show-trash" = false;
+	"extend-height" = false;
    };
+
 
     # Set workspace bindings
     "org/gnome/desktop/wm/keybindings" = {
