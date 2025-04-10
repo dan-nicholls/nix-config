@@ -2,6 +2,13 @@
 
 a nix-flakes port for managing my dotfile configurations. This is currently tailored for a system running `nix` and `home-manager` on **Ubuntu 24.04** (not NixOS).
 
+## ⚙️ Prerequisites
+
+Before using this configuration, make sure you have the following installed:
+
+- [Nix](https://nixos.org/download/) with Flakes enabled
+- [Home Manager](https://github.com/nix-community/home-manager)
+
 ## 🚀 Getting Started
 
 1. Clone the repository
