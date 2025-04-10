@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, nixglPkgs, ... }:
 
 {
   programs.tmux = {
@@ -21,5 +21,10 @@
     curl
     tree
     tldr
+
+    # Ghostty wrapped with nixGL
+    (pkgs.writeShellScriptBin "ghostty" ''
+      exec ${nixglPkgs.nixGLIntel}/bin/nixGLIntel ${pkgs.ghostty}/bin/ghostty "$@"
+    '')
   ];
 }
