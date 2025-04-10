@@ -70,6 +70,7 @@
   home.sessionVariables = {
     # EDITOR = "emacs";
   };
+  home.sessionPath = [ "$HOME/.nix-profiles/bin" ];
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
