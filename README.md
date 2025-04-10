@@ -32,4 +32,5 @@ Replace `<path-to-repo>` with the path where you cloned the repo.
 - [ ] terminal
 - [ ] tmuxinator
 - [ ] aliases
+- [ ] add power usage (W)
 
