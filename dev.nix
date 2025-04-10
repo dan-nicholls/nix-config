@@ -20,5 +20,6 @@
     git
     curl
     tree
+    tldr
   ];
 }
