@@ -7,9 +7,9 @@
 
   dconf.settings = {
     # Swap caps and escape in GNOME
-    #"org.gnome.desktop.input-sources" = {
-      #xkb-options = [ "caps:swapescape" ];
-    #};
+    "org/gnome/desktop/input-sources" = {
+      xkb-options = [ "caps:swapescape" ];
+    };
 
     # Disable dynamic workspaces
     "org/gnome/mutter" = {
