@@ -1,12 +1,28 @@
 # nix-config
 
+a nix-flakes port for managing my dotfile configurations. This is currently tailored for a system running `nix` and `home-manager` on **Ubuntu 24.04** (not NixOS).
 
-## TODO
+## 🚀 Getting Started
 
-- NVIM configuration
-- tmux configuration
-- shell (zsh)
-- terminal
-- tmuxinator
-- aliases
+1. Clone the repository
+
+```
+git clone git@github.com:dan-nicholls/nix-config.git
+```
+
+2. Apply the configuration with Home Manager:
+
+```
+home-manager switch --flake <path-to-repo>#laptop
+```
+Replace `<path-to-repo>` with the path where you cloned the repo.
+
+## 🛠️ TODO
+
+- [ ] NVIM configuration
+- [ ] tmux configuration
+- [ ] shell (zsh)
+- [ ] terminal
+- [ ] tmuxinator
+- [ ] aliases
 
