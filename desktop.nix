@@ -21,13 +21,15 @@
 	num-workspaces = 4;
     };
 
-    # Disable Super + [1..4]
+    # Disable GNOME Super + [1..4]
     "org/gnome/shell/keybindings" = {
 	"switch-to-application-1" = [];
 	"switch-to-application-2" = [];
 	"switch-to-application-3" = [];
 	"switch-to-application-4" = [];
     };
+
+    # Disable Dash-To-Dock Super + [1..4] Bindings
     "org/gnome/shell/extensions/dash-to-dock" = {
 	"app-hotkey-1" = [];
 	"app-hotkey-2" = [];
@@ -35,6 +37,7 @@
 	"app-hotkey-4" = [];
    };
 
+    # Set workspace bindings
     "org/gnome/desktop/wm/keybindings" = {
 	"switch-to-workspace-1" = [ "<Super>1" ];
 	"switch-to-workspace-2" = [ "<Super>2" ];
