@@ -21,6 +21,8 @@
     curl
     tree
     tldr
+    eza
+    zoxide
 
     # Ghostty wrapped with nixGL
     (pkgs.writeShellScriptBin "ghostty" ''
