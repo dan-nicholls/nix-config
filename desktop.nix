@@ -64,4 +64,12 @@
       binding = "<Super>r";
     };
   };
+
+  xdg.desktopEntries.ghostty = {
+    name = "Ghostty";
+    exec = "ghostty";
+    icon = "utilities-terminal";
+    terminal = false;
+    categories = [ "System" "TerminalEmulator" ];
+  };
 }
