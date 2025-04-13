@@ -23,6 +23,7 @@
     tldr
     eza
     zoxide
+    wl-clipboard
 
     # Ghostty wrapped with nixGL
     (pkgs.writeShellScriptBin "ghostty" ''
