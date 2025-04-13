@@ -24,10 +24,17 @@
     eza
     zoxide
     wl-clipboard
-
-    # Ghostty wrapped with nixGL
-    (pkgs.writeShellScriptBin "ghostty" ''
-      exec ${nixglPkgs.nixGLIntel}/bin/nixGLIntel ${pkgs.ghostty}/bin/ghostty "$@"
-    '')
   ];
+
+
+  nixGL.packages = nixglPkgs;
+  #nixGL.defaultWrapper = "mesa";
+
+  programs.ghostty = {
+    enable = true;
+    package = (config.lib.nixGL.wrap pkgs.ghostty);
+    settings = {
+      theme = "catppuccin-mocha";
+    };
+  };
 }
