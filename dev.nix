@@ -4,6 +4,8 @@
   programs.tmux = {
     enable = true;
     prefix = "C-space";
+    baseIndex = 1;
+    keyMode = "vi";
   };
 
   programs.neovim = {
