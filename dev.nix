@@ -3,6 +3,7 @@
 {
   programs.tmux = {
     enable = true;
+    prefix = "C-space";
   };
 
   programs.neovim = {
@@ -34,7 +35,7 @@
     enable = true;
     package = (config.lib.nixGL.wrap pkgs.ghostty);
     settings = {
-      theme = "catppuccin-mocha";
+      theme = "GruvboxDark";
     };
   };
 }
