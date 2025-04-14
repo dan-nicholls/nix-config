@@ -35,6 +35,10 @@
 	"app-hotkey-2" = [];
 	"app-hotkey-3" = [];
 	"app-hotkey-4" = [];
+	"app-shift-hotkey-1" = [];
+	"app-shift-hotkey-2" = [];
+	"app-shift-hotkey-3" = [];
+	"app-shift-hotkey-4" = [];
 
 	"dock-position" = "BOTTOM";
 	"autohide" = true;
@@ -45,10 +49,17 @@
 
     # Set workspace bindings
     "org/gnome/desktop/wm/keybindings" = {
+        # Switch Workspaces
 	"switch-to-workspace-1" = [ "<Super>1" ];
 	"switch-to-workspace-2" = [ "<Super>2" ];
 	"switch-to-workspace-3" = [ "<Super>3" ];
 	"switch-to-workspace-4" = [ "<Super>4" ];
+		
+	# Move Windows
+	"move-to-workspace-1" = [ "<Shift><Super>1" ];
+	"move-to-workspace-2" = [ "<Shift><Super>2" ];
+	"move-to-workspace-3" = [ "<Shift><Super>3" ];
+	"move-to-workspace-4" = [ "<Shift><Super>4" ];
     };
 
     # Set rofi keybinds
