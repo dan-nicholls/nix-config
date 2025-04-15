@@ -27,7 +27,7 @@ Replace `<path-to-repo>` with the path where you cloned the repo.
 ## 🛠️ TODO
 
 - [ ] NVIM configuration
-- [ ] tmux configuration
+- [x] tmux configuration
 - [ ] shell (zsh)
 - [ ] terminal
 - [ ] tmuxinator
