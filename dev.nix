@@ -6,6 +6,7 @@
     prefix = "C-space";
     baseIndex = 1;
     keyMode = "vi";
+    mouse = true;
   };
 
   programs.neovim = {
