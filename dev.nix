@@ -41,4 +41,12 @@
       theme = "GruvboxDark";
     };
   };
+
+  programs.zsh = {
+    enable = true;
+    shellAliases = {
+      ls = "eza";
+      hms = "home-manager switch --flake ~/nix-config#laptop";
+    };
+  };
 }

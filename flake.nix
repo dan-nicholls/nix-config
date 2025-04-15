@@ -26,7 +26,7 @@
 
         # Specify your home configuration modules here, for example,
         # the path to your home.nix.
-        modules = [ ./home.nix ./dev.nix ./desktop.nix ];
+        modules = [ ./home.nix ./dev.nix ./desktop.nix ./shell.nix ];
 
         # Optionally use extraSpecialArgs
         # to pass through arguments to home.nix
