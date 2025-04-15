@@ -7,6 +7,18 @@
     baseIndex = 1;
     keyMode = "vi";
     mouse = true;
+
+    plugins = with pkgs.tmuxPlugins; [
+      sensible
+      gruvbox
+      yank
+    ];
+
+    extraConfig = ''
+	bind-key -T copy-mode-vi v send-keys -X begin-selection
+	bind-key -T copy-mode-vi C-v send-keys -X rectangle-toggle
+	bind-key -T copy-mode-vi y send-keys -X copy-selection-and-cancel
+    '';
   };
 
   programs.neovim = {
