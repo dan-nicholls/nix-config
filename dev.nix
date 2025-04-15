@@ -13,6 +13,7 @@
     enable = true;
     plugins = with pkgs.vimPlugins; [
       gruvbox
+      vim-fugitive
     ];
     extraConfig = ''
       set number
