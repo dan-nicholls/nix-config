@@ -31,6 +31,7 @@
     plugins = with pkgs.vimPlugins; [
       gruvbox
       vim-fugitive
+      vim-tmux-navigator
     ];
     extraConfig = ''
       set number
