@@ -88,6 +88,19 @@
 	"jeffreytse/zsh-vi-mode"
       ];
     };
+    history = {
+      size = 5000;
+      save = 5000;
+      ignoreDups = true;
+      ignoreAllDups = true;
+      ignoreSpace = true;
+      saveNoDups = true;
+      share = true;
+      findNoDups = true;
+      extended = true;     
+    };
+    # Ensure Ctrl R is always fzf-history
+    #initExtra = "bindkey '^R' fzf-history-widget";
   };
 
   programs.oh-my-posh = {
