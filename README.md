@@ -28,9 +28,10 @@ Replace `<path-to-repo>` with the path where you cloned the repo.
 
 - [ ] NVIM configuration
 - [x] tmux configuration
-- [ ] shell (zsh)
-- [ ] terminal
+- [x] shell (zsh)
+- [x] terminal
 - [ ] tmuxinator
 - [ ] aliases
 - [ ] add power usage (W)
+- [ ] Update dock pinned apps
 
