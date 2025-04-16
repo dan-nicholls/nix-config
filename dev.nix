@@ -79,6 +79,15 @@
       ls = "eza";
       hms = "home-manager switch --flake ~/nix-config#laptop";
     };
+    antidote = {
+      enable = true;
+      plugins = [
+        "zsh-users/zsh-autosuggestions"
+	"zsh-users/zsh-syntax-highlighting"
+	"Aloxaf/fzf-tab"
+	"jeffreytse/zsh-vi-mode"
+      ];
+    };
   };
 
   programs.oh-my-posh = {
