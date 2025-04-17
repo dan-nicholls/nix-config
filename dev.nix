@@ -46,6 +46,7 @@
     tldr
     eza
     wl-clipboard
+    shell-gpt
   ];
 
   programs.fzf = {
