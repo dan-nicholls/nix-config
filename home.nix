@@ -68,7 +68,8 @@
   #  /etc/profiles/per-user/dannicholls/etc/profile.d/hm-session-vars.sh
   #
   home.sessionVariables = {
-    # EDITOR = "emacs";
+    EDITOR = "nvim";
+    VISUAL = "nvim";
   };
   home.sessionPath = [ "$HOME/.nix-profiles/bin" ];
 
