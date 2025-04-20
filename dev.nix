@@ -79,6 +79,7 @@
     shellAliases = {
       ls = "eza";
       hms = "home-manager switch --flake ~/nix-config#laptop";
+      gitcm = "git diff --staged | sgpt \"make me a brief conventional commit message\"";
     };
     antidote = {
       enable = true;
