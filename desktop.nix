@@ -3,12 +3,30 @@
 {
   home.packages = with pkgs; [
     rofi
+    gnomeExtensions.power-tracker
+    gnome-extension-manager
   ];
 
   dconf.settings = {
     # Swap caps and escape in GNOME
     "org/gnome/desktop/input-sources" = {
       xkb-options = [ "caps:swapescape" ];
+    };
+
+    # Enable extensions
+    "org/gnome/shell" = {
+      disable-user-extensions = false;
+
+      enabled-extensions = [
+	"marcs14@gmail.com"
+      ];
+
+      favorite-apps = [
+        "ubuntu-desktop-bootstrap_ubuntu-desktop-bootstrap.desktop"
+        "firefox_firefox.desktop"
+        "org.gnome.Nautilus.desktop"
+	"com.mitchellh.ghostty.desktop"
+      ];
     };
 
     # Disable dynamic workspaces

@@ -32,6 +32,65 @@ Replace `<path-to-repo>` with the path where you cloned the repo.
 - [x] terminal
 - [ ] tmuxinator
 - [ ] aliases
-- [ ] add power usage (W)
-- [ ] Update dock pinned apps
+- [x] add power usage (W)
+- [x] Update dock pinned apps
+- [x] Guide for adding GNOME extensions
 
+## 🧩 Adding GNOME Extensions
+
+To install and enable GNOME Shell extensions declaratively with Home Manager:
+
+### 1. Add the extension package
+
+Find the extension in [nixpkgs gnomeExtensions](https://search.nixos.org/packages?channel=unstable&query=gnomeExtensions) and add it to `home.packages`:
+
+```nix
+home.packages = with pkgs; [
+  gnomeExtensions.system-monitor
+];
+```
+
+---
+
+### 2. Find the extension’s UUID
+
+Use `gnome-extensions` to list installed extensions and find the **UUID**:
+
+```bash
+gnome-extensions list
+```
+
+Alternatively use the extension-manager tool.
+
+---
+
+### 3. Enable the extension in `dconf.settings`
+
+Add the extension's UUID to the list of enabled extensions:
+
+```nix
+dconf.settings = {
+  "org/gnome/shell" = {
+    disable-user-extensions = false; # Ensure this is enabled
+    enabled-extensions = [
+      "system-monitor@gnome-shell-extensions.gcampax.github.com"
+    ];
+  };
+};
+```
+
+If the extension requires configuration, you can add it like:
+
+~~~nix
+"org/gnome/shell/extensions/system-monitor" = {
+  show-indicator = true;
+};
+~~~
+
+---
+
+After saving changes, apply with:
+
+```bash
+home-manager switch
+```
