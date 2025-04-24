@@ -43,10 +43,20 @@
       gruvbox
       vim-fugitive
       vim-tmux-navigator
+      telescope-nvim
+      plenary-nvim
     ];
     extraConfig = ''
       set number
       colorscheme gruvbox
+    '';
+    extraLuaConfig = ''
+      vim.g.mapleader = " "
+      local telescope = require("telescope.builtin")
+      vim.keymap.set("n", "<leader>ff", telescope.find_files, { desc = "Find Files" })
+      vim.keymap.set("n", "<leader>fb", telescope.buffers, { desc = "Find Buffers" })
+      vim.keymap.set("n", "<leader>fm", telescope.marks, { desc = "Find Marks" })
+      vim.keymap.set("n", "<leader>fg", telescope.live_grep, { desc = "Find Grep" })
     '';
   };
 
@@ -58,6 +68,7 @@
     eza
     wl-clipboard
     shell-gpt
+    ripgrep
   ];
 
   programs.fzf = {
