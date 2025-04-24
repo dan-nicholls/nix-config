@@ -67,6 +67,10 @@
       vim.keymap.set("n", "<leader>gu", "<cmd>Git pull<CR>", { desc = "Git Pull" })
       vim.keymap.set("n", "<leader>gb", "<cmd>Git blame<CR>", { desc = "Git Blame" })
       vim.keymap.set("n", "<leader>gd", "<cmd>Git diff<CR>", { desc = "Git Diff" })
+
+      -- Other Keybindings
+      vim.keymap.set("n", "<Tab>", "<cmd>bnext<CR>", { desc = "Next Buffer" })
+      vim.keymap.set("n", "<S-Tab>", "<cmd>bprevious<CR>", { desc = "Previous Buffer" })
     '';
   };
 
