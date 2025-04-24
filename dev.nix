@@ -53,10 +53,20 @@
     extraLuaConfig = ''
       vim.g.mapleader = " "
       local telescope = require("telescope.builtin")
+
+      -- Telescope Keybindings
       vim.keymap.set("n", "<leader>ff", telescope.find_files, { desc = "Find Files" })
       vim.keymap.set("n", "<leader>fb", telescope.buffers, { desc = "Find Buffers" })
       vim.keymap.set("n", "<leader>fm", telescope.marks, { desc = "Find Marks" })
       vim.keymap.set("n", "<leader>fg", telescope.live_grep, { desc = "Find Grep" })
+      vim.keymap.set("n", "<leader>fc", telescope.git_commits, { desc = "Find Commit" })
+
+      -- Fugitive Keybindings
+      vim.keymap.set("n", "<leader>gs", "<cmd>Git<CR>", { desc = "Git Status" })
+      vim.keymap.set("n", "<leader>gp", "<cmd>Git push<CR>", { desc = "Git Push" })
+      vim.keymap.set("n", "<leader>gu", "<cmd>Git pull<CR>", { desc = "Git Pull" })
+      vim.keymap.set("n", "<leader>gb", "<cmd>Git blame<CR>", { desc = "Git Blame" })
+      vim.keymap.set("n", "<leader>gd", "<cmd>Git diff<CR>", { desc = "Git Diff" })
     '';
   };
 
