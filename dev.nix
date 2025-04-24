@@ -45,6 +45,7 @@
       vim-tmux-navigator
       telescope-nvim
       plenary-nvim
+      nvim-surround
     ];
     extraConfig = ''
       set number
@@ -53,6 +54,7 @@
     extraLuaConfig = ''
       vim.g.mapleader = " "
       local telescope = require("telescope.builtin")
+      require("nvim-surround").setup({})
 
       -- Telescope Keybindings
       vim.keymap.set("n", "<leader>ff", telescope.find_files, { desc = "Find Files" })
