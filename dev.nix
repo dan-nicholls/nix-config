@@ -85,6 +85,7 @@
     wl-clipboard
     shell-gpt
     ripgrep
+    ranger
   ];
 
   programs.fzf = {
