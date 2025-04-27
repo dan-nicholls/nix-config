@@ -46,15 +46,23 @@
       telescope-nvim
       plenary-nvim
       nvim-surround
+      nvim-lspconfig
+      nvim-bqf
     ];
     extraConfig = ''
-      set number
       colorscheme gruvbox
+      set number
+      set tabstop=4
+      set shiftwidth=4
     '';
     extraLuaConfig = ''
-      vim.g.mapleader = " "
       local telescope = require("telescope.builtin")
+      local lspconfig = require("lspconfig")
+
+      lspconfig.gopls.setup({})
       require("nvim-surround").setup({})
+
+      vim.g.mapleader = " "
 
       -- Telescope Keybindings
       vim.keymap.set("n", "<leader>ff", telescope.find_files, { desc = "Find Files" })
@@ -86,6 +94,8 @@
     shell-gpt
     ripgrep
     ranger
+    go
+    gopls
   ];
 
   programs.fzf = {
