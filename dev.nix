@@ -107,6 +107,7 @@
       ls = "eza";
       hms = "home-manager switch --flake ~/nix-config#laptop";
       gitcm = "git diff --staged | sgpt \"make me a very brief conventional commit message\" --code";
+      glog = "git log --oneline -n 10 --color=always | cat"
     };
     antidote = {
       enable = true;
