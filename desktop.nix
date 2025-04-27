@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, nixglPkgs, ... }:
 
 {
   home.packages = with pkgs; [
@@ -6,6 +6,17 @@
     gnomeExtensions.power-tracker
     gnome-extension-manager
   ];
+
+  nixGL.packages = nixglPkgs;
+  #nixGL.defaultWrapper = "mesa";
+
+  programs.ghostty = {
+    enable = true;
+    package = (config.lib.nixGL.wrap pkgs.ghostty);
+    settings = {
+      theme = "GruvboxDark";
+    };
+  };
 
   dconf.settings = {
     # Swap caps and escape in GNOME

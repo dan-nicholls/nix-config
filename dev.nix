@@ -1,4 +1,4 @@
-{ config, pkgs, nixglPkgs, ... }:
+{ config, pkgs, ... }:
 
 {
   programs.tmux = {
@@ -99,18 +99,6 @@
     options = [
       "--cmd cd"
     ];
-  };
-
-
-  nixGL.packages = nixglPkgs;
-  #nixGL.defaultWrapper = "mesa";
-
-  programs.ghostty = {
-    enable = true;
-    package = (config.lib.nixGL.wrap pkgs.ghostty);
-    settings = {
-      theme = "GruvboxDark";
-    };
   };
 
   programs.zsh = {
