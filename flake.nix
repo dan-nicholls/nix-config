@@ -18,7 +18,10 @@
   outputs = { nixpkgs, home-manager, nixGL, ... }:
     let
       system = "x86_64-linux";
-      pkgs = nixpkgs.legacyPackages.${system};
+	  pkgs = import nixpkgs {
+	    system = "x86_64-linux";
+	    config.allowUnfree = true;
+	  };
       nixglPkgs = nixGL.packages.${system};
     in {
       homeConfigurations."laptop" = home-manager.lib.homeManagerConfiguration {

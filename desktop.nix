@@ -5,6 +5,8 @@
     rofi
     gnomeExtensions.power-tracker
     gnome-extension-manager
+	discord
+	spotify
   ];
 
   nixGL.packages = nixglPkgs;
