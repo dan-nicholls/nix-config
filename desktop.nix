@@ -39,7 +39,9 @@
         "ubuntu-desktop-bootstrap_ubuntu-desktop-bootstrap.desktop"
         "firefox_firefox.desktop"
         "org.gnome.Nautilus.desktop"
-	"com.mitchellh.ghostty.desktop"
+	    "com.mitchellh.ghostty.desktop"
+		"spotify.desktop"
+		"discord.desktop"
       ];
     };
 
