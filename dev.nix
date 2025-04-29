@@ -48,12 +48,16 @@
       nvim-surround
       nvim-lspconfig
       nvim-bqf
+
+	  blink-cmp
     ];
     extraConfig = ''
       colorscheme gruvbox
       set number
       set tabstop=4
       set shiftwidth=4
+	  set relativenumber
+	  set splitbelow
     '';
     extraLuaConfig = ''
       local telescope = require("telescope.builtin")
@@ -63,6 +67,33 @@
       require("nvim-surround").setup({})
 
       vim.g.mapleader = " "
+
+	  vim.diagnostic.config({
+	    virtual_text = true,
+		signs = true,
+		underline = true,
+	 })
+	  
+	  require("blink.cmp").setup({
+        keymap = {
+		  preset = "super-tab",
+		  ['<C-space>'] = {},
+		  ['<C-d>'] = {'show', 'show_documentation', 'hide_documentation', 'fallback'},
+		  ['<C-s>'] = {'show_signature', 'hide_signature', 'fallback'}
+		},
+        appearance = {
+          nerd_font_variant = "mono",
+        },
+        completion = {
+          documentation = { auto_show = false },
+        },
+        sources = {
+          default = { "lsp", "path", "snippets", "buffer" },
+        },
+		fuzzy = {
+          implementation = "prefer_rust_with_warning"
+        }
+     })
 
       -- Telescope Keybindings
       vim.keymap.set("n", "<leader>ff", telescope.find_files, { desc = "Find Files" })
@@ -81,6 +112,17 @@
       -- Other Keybindings
       vim.keymap.set("n", "<Tab>", "<cmd>bnext<CR>", { desc = "Next Buffer" })
       vim.keymap.set("n", "<S-Tab>", "<cmd>bprevious<CR>", { desc = "Previous Buffer" })
+	  vim.keymap.set("n", "<leader>rn", function()
+	    if vim.wo.relativenumber then
+		  vim.wo.relativenumber = false
+		else
+		  vim.wo.relativenumber = true
+		end
+	  end, { noremap = true, silent = true })
+	  vim.keymap.set("n", "<leader>lf", function()
+	    vim.lsp.buf.format()
+	  end, { desc = "Format buffer" })
+
     '';
   };
 
