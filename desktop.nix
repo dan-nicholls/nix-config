@@ -17,6 +17,7 @@
     package = (config.lib.nixGL.wrap pkgs.ghostty);
     settings = {
       theme = "GruvboxDark";
+	  background-opacity = 0.9;
     };
   };
 
