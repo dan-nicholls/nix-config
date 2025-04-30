@@ -9,6 +9,15 @@
 	spotify
   ];
 
+  services.spotifyd = {
+    enable = true;
+    settings = {
+      global = {
+        backend = "pulseaudio";
+      };
+    };
+  };
+
   nixGL.packages = nixglPkgs;
   #nixGL.defaultWrapper = "mesa";
 
