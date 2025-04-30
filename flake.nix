@@ -10,20 +10,21 @@
     };
 
     nixGL = {
-	url = "github:guibou/nixGL";
-	inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:guibou/nixGL";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
   outputs = { nixpkgs, home-manager, nixGL, ... }:
     let
       system = "x86_64-linux";
-	  pkgs = import nixpkgs {
-	    system = "x86_64-linux";
-	    config.allowUnfree = true;
-	  };
+      pkgs = import nixpkgs {
+        system = "x86_64-linux";
+        config.allowUnfree = true;
+      };
       nixglPkgs = nixGL.packages.${system};
-    in {
+    in
+    {
       homeConfigurations."laptop" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
 
@@ -33,9 +34,9 @@
 
         # Optionally use extraSpecialArgs
         # to pass through arguments to home.nix
-	extraSpecialArgs = {
-	  inherit nixglPkgs;
-	};
+        extraSpecialArgs = {
+          inherit nixglPkgs;
+        };
       };
     };
 }

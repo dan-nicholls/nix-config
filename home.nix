@@ -70,11 +70,11 @@
   home.sessionVariables = {
     EDITOR = "nvim";
     VISUAL = "nvim";
-	GOPATH = "$HOME/go";
+    GOPATH = "$HOME/go";
   };
-  home.sessionPath = [ 
+  home.sessionPath = [
     "$HOME/.nix-profile/bin"
-    "$HOME/go/bin" 
+    "$HOME/go/bin"
   ];
 
   # Let Home Manager install and manage itself.
