@@ -48,6 +48,9 @@
       nvim-surround
       nvim-lspconfig
       nvim-bqf
+	  leetcode-nvim
+	  nvim-treesitter
+	  nvim-treesitter-parsers.html
 
       blink-cmp
     ];
@@ -56,8 +59,8 @@
             set number
             set tabstop=4
             set shiftwidth=4
-      	  set relativenumber
-      	  set splitbelow
+			set relativenumber
+      	  	set splitbelow
     '';
     extraLuaConfig = ''
             local telescope = require("telescope.builtin")
@@ -68,32 +71,40 @@
 
             vim.g.mapleader = " "
 
-      	  vim.diagnostic.config({
-      	    virtual_text = true,
-      		signs = true,
-      		underline = true,
-      	 })
-      	  
-      	  require("blink.cmp").setup({
-              keymap = {
-      		  preset = "super-tab",
-      		  ['<C-space>'] = {},
-      		  ['<C-d>'] = {'show', 'show_documentation', 'hide_documentation', 'fallback'},
-      		  ['<C-s>'] = {'show_signature', 'hide_signature', 'fallback'}
-      		},
-              appearance = {
-                nerd_font_variant = "mono",
-              },
-              completion = {
-                documentation = { auto_show = false },
-              },
-              sources = {
-                default = { "lsp", "path", "snippets", "buffer" },
-              },
-      		fuzzy = {
-                implementation = "prefer_rust_with_warning"
-              }
-           })
+      	  	vim.diagnostic.config({
+      	    	virtual_text = true,
+      			signs = true,
+      			underline = true,
+      	 	})
+
+      	  	require("blink.cmp").setup({
+            	keymap = {
+      				preset = "super-tab",
+      		  		['<C-space>'] = {},
+      		  		['<C-d>'] = {'show', 'show_documentation', 'hide_documentation', 'fallback'},
+      		  		['<C-s>'] = {'show_signature', 'hide_signature', 'fallback'}
+      			},
+				appearance = {
+					nerd_font_variant = "mono",
+				},
+				completion = {
+					documentation = { auto_show = false },
+				},
+              	sources = {
+                	default = { "lsp", "path", "snippets", "buffer" },
+              	},
+				fuzzy = {
+					implementation = "prefer_rust_with_warning"
+				}
+           	})
+
+			-- Leetcode Setup
+		 	require("leetcode").setup({
+      	   		lang = "golang",
+				storage = {
+					home = "~/Repos/leetcode",
+				}
+    	 	})
 
             -- Telescope Keybindings
             vim.keymap.set("n", "<leader>ff", telescope.find_files, { desc = "Find Files" })
@@ -112,19 +123,25 @@
             -- Other Keybindings
             vim.keymap.set("n", "<Tab>", "<cmd>bnext<CR>", { desc = "Next Buffer" })
             vim.keymap.set("n", "<S-Tab>", "<cmd>bprevious<CR>", { desc = "Previous Buffer" })
+
+			vim.keymap.set("i", "<C-h>", "<Left>", { noremap = true })
+			vim.keymap.set("i", "<C-j>", "<Down>", { noremap = true })
+			vim.keymap.set("i", "<C-k>", "<Up>", { noremap = true })
+			vim.keymap.set("i", "<C-l>", "<Right>", { noremap = true })
+
             vim.keymap.set("n", "<C-s>", ":w<CR>", { desc = "Save Buffer" })
             vim.keymap.set("n", "<C-c>", ":%y+<CR>", { desc = "Copy Buffer" })
-      	  vim.keymap.set("n", "<leader>rn", function()
-      	    if vim.wo.relativenumber then
-      		  vim.wo.relativenumber = false
-      		else
-      		  vim.wo.relativenumber = true
-      		end
-      	  end, { noremap = true, silent = true })
-      	  vim.keymap.set("n", "<leader>lf", function()
-      	    vim.lsp.buf.format()
-      	  end, { desc = "Format buffer" })
-    '';
+      	  	vim.keymap.set("n", "<leader>rn", function()
+      	    	if vim.wo.relativenumber then
+      		  		vim.wo.relativenumber = false
+      			else
+      		  		vim.wo.relativenumber = true
+      			end
+      	  	end, { noremap = true, silent = true })
+      	  	vim.keymap.set("n", "<leader>lf", function()
+      	   		vim.lsp.buf.format()
+      	  	end, { desc = "Format buffer" })
+    	'';
   };
 
   home.packages = with pkgs; [
@@ -161,6 +178,7 @@
       hms = "home-manager switch --flake ~/nix-config#laptop";
       gitcm = "git diff --staged | sgpt \"make me a very brief conventional commit message\" --code";
       glog = "git log --oneline -n 10 --color=always | cat";
+	  sp = "spotify_player";
     };
     antidote = {
       enable = true;
