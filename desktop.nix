@@ -14,8 +14,18 @@
     settings = {
       global = {
         backend = "pulseaudio";
+		device_name = "x1-carbon";
       };
     };
+  };
+
+  programs.spotify-player = {
+	enable = true;
+	settings = {
+		default_device = "x1-carbon";
+		client_id = "289a79b3f16449f4a3b97fb2bd357d93";
+		enable_streaming = "Never";
+	};
   };
 
   nixGL.packages = nixglPkgs;
