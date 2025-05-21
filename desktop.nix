@@ -43,7 +43,7 @@
   dconf.settings = {
     # Swap caps and escape in GNOME
     "org/gnome/desktop/input-sources" = {
-      xkb-options = [ "caps:swapescape" ];
+      xkb-options = [ "caps:escape" ];
     };
 
     # Enable extensions
