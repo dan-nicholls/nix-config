@@ -1,6 +1,20 @@
-{ config, pkgs, nixglPkgs, ... }:
+{ config, pkgs, lib, nixglPkgs, deviceName ? "x1-carbon", ... }:
 
 {
+  nixGL.packages = nixglPkgs;
+  #nixGL.defaultWrapper = "mesa";
+
+  programs.ghostty = {
+    enable = true;
+    package = (config.lib.nixGL.wrap pkgs.ghostty);
+    settings = {
+      theme = "GruvboxDark";
+      background-opacity = 0.9;
+	  font-family = "Terminess Nerd Font Mono";
+	  font-size = 15;
+	};
+  };
+
   home.packages = with pkgs; [
     rofi
     gnomeExtensions.power-tracker
@@ -17,7 +31,7 @@
     settings = {
       global = {
         backend = "pulseaudio";
-		device_name = "x1-carbon";
+		device_name = deviceName;
       };
     };
   };
@@ -25,25 +39,13 @@
   programs.spotify-player = {
 	enable = true;
 	settings = {
-		default_device = "x1-carbon";
+		default_device = deviceName;
 		client_id = "289a79b3f16449f4a3b97fb2bd357d93";
 		enable_streaming = "Never";
 	};
   };
 
-  nixGL.packages = nixglPkgs;
-  #nixGL.defaultWrapper = "mesa";
 
-  programs.ghostty = {
-    enable = true;
-    package = (config.lib.nixGL.wrap pkgs.ghostty);
-    settings = {
-      theme = "GruvboxDark";
-      background-opacity = 0.9;
-	  font-family = "Terminess Nerd Font Mono";
-	  font-size = 15;
-	};
-  };
 
   dconf.settings = {
     # Swap caps and escape in GNOME
@@ -54,7 +56,6 @@
     # Enable extensions
     "org/gnome/shell" = {
       disable-user-extensions = false;
-
       enabled-extensions = [
         "marcs14@gmail.com"
       ];
