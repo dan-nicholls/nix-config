@@ -23,6 +23,7 @@
         extraConfig = ''
           set -g @continuum-restore 'on'
           set -g @continuum-save-interval '30' # minutes
+		  set -g renumber-windows on
         '';
       }
     ];
@@ -51,6 +52,10 @@
 	  leetcode-nvim
 	  nvim-treesitter
 	  nvim-treesitter-parsers.html
+	  nvim-treesitter-parsers.go
+	  nvim-treesitter-parsers.gotmpl
+
+	  octo-nvim
 
       blink-cmp
     ];
@@ -68,6 +73,7 @@
 
             lspconfig.gopls.setup({})
             require("nvim-surround").setup({})
+			require("octo").setup({})
 
             vim.g.mapleader = " "
 
@@ -153,9 +159,18 @@
     wl-clipboard
     shell-gpt
     ripgrep
-    ranger
+	yazi
     go
     gopls
+	gnumake
+	hyperfine
+	fselect	
+
+	wiki-tui
+	mask
+	mprocs
+
+	gh
   ];
 
   programs.fzf = {
@@ -217,4 +232,5 @@
       builtins.readFile ./oh-my-zsh.json
     );
   };
+
 }
