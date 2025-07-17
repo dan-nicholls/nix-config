@@ -7,6 +7,9 @@
     gnome-extension-manager
     discord
     spotifyd
+	terminus-nerdfont
+	deskflow
+	tailscale
   ];
 
   services.spotifyd = {
@@ -37,7 +40,9 @@
     settings = {
       theme = "GruvboxDark";
       background-opacity = 0.9;
-    };
+	  font-family = "Terminess Nerd Font Mono";
+	  font-size = 15;
+	};
   };
 
   dconf.settings = {
