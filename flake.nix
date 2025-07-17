@@ -41,6 +41,22 @@
 			  deviceName = "x1-carbon";
 			};
 		};
+
+	  	desktop = home-manager.lib.homeManagerConfiguration {
+			inherit pkgs;
+			modules = [
+				./modules/common/home.nix
+				./modules/common/dev.nix
+				./modules/common/shell.nix
+				./modules/hosts/desktop.nix
+			];
+
+			extraSpecialArgs = {
+			  inherit nixglPkgs self;
+			  hostRole = "desktop";
+			  deviceName = "dans-pc";
+			};
+		};
       };
     };
 }

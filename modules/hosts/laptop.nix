@@ -19,7 +19,6 @@
     rofi
     gnomeExtensions.power-tracker
     gnome-extension-manager
-    discord
     spotifyd
 	terminus-nerdfont
 	deskflow
