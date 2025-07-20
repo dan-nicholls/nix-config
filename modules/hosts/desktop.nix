@@ -1,4 +1,4 @@
-{ config, pkgs, lib, nixglPkgs, deviceName ? "desktop", ... }:
+{ config, pkgs, lib, nixglPkgs, deviceName ? "desktop", zenBrowser ... }:
 
 {
 	nixGL.packages = nixglPkgs;
@@ -16,5 +16,6 @@
 
 	home.packages = with pkgs; [
 		terminus-nerdfont
+		#(config.lib.nixGL.wrap pkgs.prismlauncher)
 	];
 }

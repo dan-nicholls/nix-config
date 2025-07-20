@@ -13,6 +13,11 @@
       url = "github:guibou/nixGL";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+	zenBrowser = {
+		url = "github:MarceColl/zen-browser-flake";
+		inputs.nixpkgs.follows = "nixpkgs";
+	};
   };
 
   outputs = { self, nixpkgs, home-manager, nixGL, ... }:
@@ -23,6 +28,7 @@
         config.allowUnfree = true;
       };
       nixglPkgs = nixGL.packages.${system};
+	  zenBrowserPkgs =  zenBrowser.packages.$"{system}";
     in
     {
       homeConfigurations = {
@@ -55,6 +61,7 @@
 			  inherit nixglPkgs self;
 			  hostRole = "desktop";
 			  deviceName = "dans-pc";
+			  zenBrowser
 			};
 		};
       };
