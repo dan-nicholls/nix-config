@@ -1,36 +1,6 @@
-{ config, pkgs, nixglPkgs, ... }:
+{ config, pkgs, lib, nixglPkgs, deviceName ? "x1-carbon", ... }:
 
 {
-  home.packages = with pkgs; [
-    rofi
-    gnomeExtensions.power-tracker
-    gnome-extension-manager
-    discord
-    spotifyd
-	terminus-nerdfont
-	deskflow
-	tailscale
-  ];
-
-  services.spotifyd = {
-    enable = true;
-    settings = {
-      global = {
-        backend = "pulseaudio";
-		device_name = "x1-carbon";
-      };
-    };
-  };
-
-  programs.spotify-player = {
-	enable = true;
-	settings = {
-		default_device = "x1-carbon";
-		client_id = "289a79b3f16449f4a3b97fb2bd357d93";
-		enable_streaming = "Never";
-	};
-  };
-
   nixGL.packages = nixglPkgs;
   #nixGL.defaultWrapper = "mesa";
 
@@ -41,9 +11,42 @@
       theme = "GruvboxDark";
       background-opacity = 0.9;
 	  font-family = "Terminess Nerd Font Mono";
+	  #font-family = "JetbrainsMono NFM";
 	  font-size = 15;
 	};
   };
+
+  home.packages = with pkgs; [
+    rofi
+    gnomeExtensions.power-tracker
+    gnome-extension-manager
+    spotifyd
+	nerd-fonts.jetbrains-mono
+	nerd-fonts.terminess-ttf
+	deskflow
+	tailscale
+  ];
+
+  services.spotifyd = {
+    enable = true;
+    settings = {
+      global = {
+        backend = "pulseaudio";
+		device_name = deviceName;
+      };
+    };
+  };
+
+  programs.spotify-player = {
+	enable = true;
+	settings = {
+		default_device = deviceName;
+		client_id = "289a79b3f16449f4a3b97fb2bd357d93";
+		enable_streaming = "Never";
+	};
+  };
+
+
 
   dconf.settings = {
     # Swap caps and escape in GNOME
@@ -54,7 +57,6 @@
     # Enable extensions
     "org/gnome/shell" = {
       disable-user-extensions = false;
-
       enabled-extensions = [
         "marcs14@gmail.com"
       ];
