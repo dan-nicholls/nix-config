@@ -15,7 +15,7 @@
 	};
 
 	home.packages = with pkgs; [
-		terminus-nerdfont
+		nerd-fonts.terminess-ttf
 		#(config.lib.nixGL.wrap pkgs.prismlauncher)
 	];
 }
