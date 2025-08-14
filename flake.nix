@@ -20,15 +20,18 @@
 	};
   };
 
-  outputs = { self, nixpkgs, home-manager, nixGL, ... }:
+  outputs = { self, nixpkgs, home-manager, nixGL, zenBrowser, ... }:
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs {
         system = "x86_64-linux";
-        config.allowUnfree = true;
+        config = {
+			allowUnfree = true;
+		};
       };
+
       nixglPkgs = nixGL.packages.${system};
-	  zenBrowserPkgs =  zenBrowser.packages.$"{system}";
+	  zenBrowserPkgs =  zenBrowser.packages.${system};
     in
     {
       homeConfigurations = {
@@ -42,7 +45,7 @@
 			];
 
 			extraSpecialArgs = {
-			  inherit nixglPkgs self;
+			  inherit self nixglPkgs zenBrowserPkgs;
 			  hostRole = "laptop";
 			  deviceName = "x1-carbon";
 			};
@@ -58,10 +61,9 @@
 			];
 
 			extraSpecialArgs = {
-			  inherit nixglPkgs self;
+			  inherit self nixglPkgs zenBrowserPkgs;
 			  hostRole = "desktop";
 			  deviceName = "dans-pc";
-			  zenBrowser
 			};
 		};
       };
