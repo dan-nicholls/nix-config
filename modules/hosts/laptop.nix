@@ -11,6 +11,7 @@
       theme = "GruvboxDark";
       background-opacity = 0.9;
 	  font-family = "Terminess Nerd Font Mono";
+	  #font-family = "JetbrainsMono NFM";
 	  font-size = 15;
 	};
   };
@@ -20,7 +21,8 @@
     gnomeExtensions.power-tracker
     gnome-extension-manager
     spotifyd
-	terminus-nerdfont
+	nerd-fonts.jetbrains-mono
+	nerd-fonts.terminess-ttf
 	deskflow
 	tailscale
   ];
