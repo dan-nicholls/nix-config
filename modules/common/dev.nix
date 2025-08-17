@@ -84,6 +84,8 @@
 	mask
 	mprocs
 	gh
+	fd
+	bat
   ];
 
   programs.fzf = {
