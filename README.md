@@ -24,6 +24,12 @@ home-manager switch --flake <path-to-repo>#laptop
 ```
 Replace `<path-to-repo>` with the path where you cloned the repo.
 
+3. Formatting can be done by using the following:
+
+```sh
+nix fmt ./*
+```
+
 ## 🛠️ TODO
 
 - [ ] NVIM configuration
