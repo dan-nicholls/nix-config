@@ -45,6 +45,7 @@
   programs.neovim = {
     enable = true;
     plugins = with pkgs.vimPlugins; [
+      catppuccin-nvim
       gruvbox
       vim-fugitive
       vim-tmux-navigator
@@ -62,7 +63,7 @@
       blink-cmp
     ];
     extraConfig = ''
-      colorscheme gruvbox
+      colorscheme catpuccin
       set number
       set tabstop=4
       set shiftwidth=4

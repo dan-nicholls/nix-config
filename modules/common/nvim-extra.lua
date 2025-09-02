@@ -1,5 +1,7 @@
 local telescope = require("telescope.builtin")
 local lspconfig = require("lspconfig")
+local util = require("lspconfig.util")
+local configs = require("lspconfig.configs")
 
 lspconfig.gopls.setup({})
 require("nvim-surround").setup({})
@@ -7,6 +9,19 @@ require("octo").setup({})
 
 vim.g.mapleader = " "
 
+-- Theme
+require("catppuccin").setup({
+  flavour = "mocha",
+  transparent_background = true,
+  integrations = {
+    treesitter = true,
+    telescope = true,
+    cmp = true,
+  },
+})
+vim.cmd.colorscheme "catppuccin"
+
+-- LSP
 vim.diagnostic.config({virtual_text = true, signs = true, underline = true})
 
 require("blink.cmp").setup({
@@ -24,11 +39,37 @@ require("blink.cmp").setup({
     fuzzy = {implementation = "prefer_rust_with_warning"}
 })
 
+-- Templ LSP
+vim.filetype.add({ extension = { templ = "templ" } })
+
+if not configs.templ then
+  configs.templ = {
+    default_config = {
+      cmd = { "templ", "lsp" },
+      filetypes = { "templ" },
+      root_dir = function(fname)
+        return util.root_pattern("go.mod", ".git")(fname) or util.path.dirname(fname)
+      end,
+      single_file_support = true,
+    },
+  }
+end
+
+lspconfig.templ.setup({})
+
+require("nvim-treesitter.configs").setup {
+	highlight = {
+		enable = true,
+		additional_vim_regrex_highlighting = false,
+	}
+}
+
 -- Leetcode Setup
 require("leetcode").setup({
     lang = "golang",
     storage = {home = "~/Repos/leetcode"}
 })
+
 
 -- Telescope Keybindings
 vim.keymap.set("n", "<leader>ff", telescope.find_files, {desc = "Find Files"})
@@ -47,6 +88,9 @@ vim.keymap.set("n", "<leader>gd", "<cmd>Git diff<CR>", {desc = "Git Diff"})
 -- Other Keybindings
 vim.keymap.set("n", "<Tab>", "<cmd>bnext<CR>", {desc = "Next Buffer"})
 vim.keymap.set("n", "<S-Tab>", "<cmd>bprevious<CR>", {desc = "Previous Buffer"})
+vim.keymap.set("n", "<leader>dd", function()
+	vim.diagnostic.open_float()
+end, {desc = "Show Diagnostic"})
 
 vim.keymap.set("i", "<C-h>", "<Left>", {noremap = true})
 vim.keymap.set("i", "<C-j>", "<Down>", {noremap = true})

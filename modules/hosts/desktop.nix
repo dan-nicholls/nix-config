@@ -29,5 +29,6 @@
     nerd-fonts.jetbrains-mono
     nerd-fonts.terminess-ttf
     #(config.lib.nixGL.wrap pkgs.prismlauncher)
+    lan-mouse
   ];
 }

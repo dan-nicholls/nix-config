@@ -34,6 +34,8 @@
     nerd-fonts.terminess-ttf
     deskflow
     tailscale
+    lan-mouse
+    obsidian
   ];
 
   services.spotifyd = {
