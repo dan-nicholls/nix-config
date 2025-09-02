@@ -14,13 +14,16 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-	zenBrowser = {
-		url = "github:MarceColl/zen-browser-flake";
-		inputs.nixpkgs.follows = "nixpkgs";
+	zen-browser = {
+		url = "github:0xc000022070/zen-browser-flake";
+		inputs = {
+			home-manager.follows = "home-manager";
+			nixpkgs.follows = "nixpkgs";
+		};
 	};
   };
 
-  outputs = { self, nixpkgs, home-manager, nixGL, zenBrowser, ... }:
+  outputs = { self, nixpkgs, home-manager, nixGL, zen-browser, ... }:
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs {
@@ -31,7 +34,6 @@
       };
 
       nixglPkgs = nixGL.packages.${system};
-	  zenBrowserPkgs =  zenBrowser.packages.${system};
     in
     {
       homeConfigurations = {
@@ -45,7 +47,6 @@
 			];
 
 			extraSpecialArgs = {
-			  inherit self nixglPkgs zenBrowserPkgs;
 			  hostRole = "laptop";
 			  deviceName = "x1-carbon";
 			};
@@ -61,11 +62,12 @@
 			];
 
 			extraSpecialArgs = {
-			  inherit self nixglPkgs zenBrowserPkgs;
-			  hostRole = "desktop";
-			  deviceName = "dans-pc";
+				hostRole = "desktop";
+				deviceName = "dans-pc";
+				zenModule = zen-browser.homeModules.twilight;
+				nixglPkgs = nixglPkgs;
 			};
 		};
-      };
+		};
     };
 }
