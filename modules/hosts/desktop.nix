@@ -1,6 +1,11 @@
-{ config, pkgs, lib, nixglPkgs, deviceName ? "desktop", zenBrowser ... }:
+{ config, pkgs, lib, nixglPkgs, deviceName ? "desktop", zenModule, ... }:
 
 {
+	imports = [ zenModule ];
+	programs.zen-browser = {
+		enable = true;
+	};
+
 	nixGL.packages = nixglPkgs;
 
 	programs.ghostty = {

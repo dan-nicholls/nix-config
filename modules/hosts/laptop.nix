@@ -1,6 +1,9 @@
-{ config, pkgs, lib, nixglPkgs, deviceName ? "x1-carbon", ... }:
+{ config, pkgs, lib, nixglPkgs, deviceName ? "x1-carbon", zenModule, ... }:
 
 {
+  imports = [ zenModule ];
+  programs.zen-browser.enable = true;
+
   nixGL.packages = nixglPkgs;
   #nixGL.defaultWrapper = "mesa";
 
@@ -63,7 +66,7 @@
 
       favorite-apps = [
         "ubuntu-desktop-bootstrap_ubuntu-desktop-bootstrap.desktop"
-        "firefox_firefox.desktop"
+		"zen.desktop"
         "org.gnome.Nautilus.desktop"
         "com.mitchellh.ghostty.desktop"
         "spotify.desktop"
