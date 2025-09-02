@@ -1,10 +1,14 @@
-{ config, pkgs, lib, ... }: {
-
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}: {
   # Ensures shell variables are passed correctly
   targets.genericLinux.enable = true;
 
   # Ensures ZSH gets set to the default shell
-  home.activation.make-zsh-default-shell = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+  home.activation.make-zsh-default-shell = lib.hm.dag.entryAfter ["writeBoundary"] ''
     PATH="/usr/bin:/bin:$PATH"
     ZSH_PATH="${config.home.homeDirectory}/.nix-profile/bin/zsh"
     if [[ $(getent passwd ${config.home.username}) != *"$ZSH_PATH" ]]; then

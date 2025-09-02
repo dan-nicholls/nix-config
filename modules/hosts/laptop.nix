@@ -1,7 +1,13 @@
-{ config, pkgs, lib, nixglPkgs, deviceName ? "x1-carbon", zenModule, ... }:
-
 {
-  imports = [ zenModule ];
+  config,
+  pkgs,
+  lib,
+  nixglPkgs,
+  deviceName ? "x1-carbon",
+  zenModule,
+  ...
+}: {
+  imports = [zenModule];
   programs.zen-browser.enable = true;
 
   nixGL.packages = nixglPkgs;
@@ -9,14 +15,14 @@
 
   programs.ghostty = {
     enable = true;
-    package = (config.lib.nixGL.wrap pkgs.ghostty);
+    package = config.lib.nixGL.wrap pkgs.ghostty;
     settings = {
       theme = "GruvboxDark";
       background-opacity = 0.9;
-	  font-family = "Terminess Nerd Font Mono";
-	  #font-family = "JetbrainsMono NFM";
-	  font-size = 15;
-	};
+      font-family = "Terminess Nerd Font Mono";
+      #font-family = "JetbrainsMono NFM";
+      font-size = 15;
+    };
   };
 
   home.packages = with pkgs; [
@@ -24,10 +30,10 @@
     gnomeExtensions.power-tracker
     gnome-extension-manager
     spotifyd
-	nerd-fonts.jetbrains-mono
-	nerd-fonts.terminess-ttf
-	deskflow
-	tailscale
+    nerd-fonts.jetbrains-mono
+    nerd-fonts.terminess-ttf
+    deskflow
+    tailscale
   ];
 
   services.spotifyd = {
@@ -35,26 +41,24 @@
     settings = {
       global = {
         backend = "pulseaudio";
-		device_name = deviceName;
+        device_name = deviceName;
       };
     };
   };
 
   programs.spotify-player = {
-	enable = true;
-	settings = {
-		default_device = deviceName;
-		client_id = "289a79b3f16449f4a3b97fb2bd357d93";
-		enable_streaming = "Never";
-	};
+    enable = true;
+    settings = {
+      default_device = deviceName;
+      client_id = "289a79b3f16449f4a3b97fb2bd357d93";
+      enable_streaming = "Never";
+    };
   };
-
-
 
   dconf.settings = {
     # Swap caps and escape in GNOME
     "org/gnome/desktop/input-sources" = {
-      xkb-options = [ "caps:escape" ];
+      xkb-options = ["caps:escape"];
     };
 
     # Enable extensions
@@ -66,7 +70,7 @@
 
       favorite-apps = [
         "ubuntu-desktop-bootstrap_ubuntu-desktop-bootstrap.desktop"
-		"zen.desktop"
+        "zen.desktop"
         "org.gnome.Nautilus.desktop"
         "com.mitchellh.ghostty.desktop"
         "spotify.desktop"
@@ -86,22 +90,22 @@
 
     # Disable GNOME Super + [1..4]
     "org/gnome/shell/keybindings" = {
-      "switch-to-application-1" = [ ];
-      "switch-to-application-2" = [ ];
-      "switch-to-application-3" = [ ];
-      "switch-to-application-4" = [ ];
+      "switch-to-application-1" = [];
+      "switch-to-application-2" = [];
+      "switch-to-application-3" = [];
+      "switch-to-application-4" = [];
     };
 
     # Disable Dash-To-Dock Super + [1..4] Bindings
     "org/gnome/shell/extensions/dash-to-dock" = {
-      "app-hotkey-1" = [ ];
-      "app-hotkey-2" = [ ];
-      "app-hotkey-3" = [ ];
-      "app-hotkey-4" = [ ];
-      "app-shift-hotkey-1" = [ ];
-      "app-shift-hotkey-2" = [ ];
-      "app-shift-hotkey-3" = [ ];
-      "app-shift-hotkey-4" = [ ];
+      "app-hotkey-1" = [];
+      "app-hotkey-2" = [];
+      "app-hotkey-3" = [];
+      "app-hotkey-4" = [];
+      "app-shift-hotkey-1" = [];
+      "app-shift-hotkey-2" = [];
+      "app-shift-hotkey-3" = [];
+      "app-shift-hotkey-4" = [];
 
       "dock-position" = "BOTTOM";
       "autohide" = true;
@@ -109,20 +113,19 @@
       "extend-height" = false;
     };
 
-
     # Set workspace bindings
     "org/gnome/desktop/wm/keybindings" = {
       # Switch Workspaces
-      "switch-to-workspace-1" = [ "<Super>1" ];
-      "switch-to-workspace-2" = [ "<Super>2" ];
-      "switch-to-workspace-3" = [ "<Super>3" ];
-      "switch-to-workspace-4" = [ "<Super>4" ];
+      "switch-to-workspace-1" = ["<Super>1"];
+      "switch-to-workspace-2" = ["<Super>2"];
+      "switch-to-workspace-3" = ["<Super>3"];
+      "switch-to-workspace-4" = ["<Super>4"];
 
       # Move Windows
-      "move-to-workspace-1" = [ "<Shift><Super>1" ];
-      "move-to-workspace-2" = [ "<Shift><Super>2" ];
-      "move-to-workspace-3" = [ "<Shift><Super>3" ];
-      "move-to-workspace-4" = [ "<Shift><Super>4" ];
+      "move-to-workspace-1" = ["<Shift><Super>1"];
+      "move-to-workspace-2" = ["<Shift><Super>2"];
+      "move-to-workspace-3" = ["<Shift><Super>3"];
+      "move-to-workspace-4" = ["<Shift><Super>4"];
     };
 
     # Set rofi keybinds
