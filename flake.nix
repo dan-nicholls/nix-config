@@ -49,6 +49,8 @@
 			extraSpecialArgs = {
 			  hostRole = "laptop";
 			  deviceName = "x1-carbon";
+			  nixglPkgs = nixglPkgs;
+			  zenModule = zen-browser.homeModules.twilight;
 			};
 		};
 
