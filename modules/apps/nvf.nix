@@ -12,6 +12,8 @@
 					transparent = true;
 				};
 				
+				autopairs.nvim-autopairs.enable = true;
+
 				statusline = {
 					lualine = {
 						enable = true;
@@ -21,13 +23,19 @@
 
 				telescope.enable = true;
 				treesitter.context.enable = true;
-				autocomplete.nvim-cmp.enable = true;
 
 				lsp = {
 					enable = true;
-					
+					lspSignature.enable = false;	
 					formatOnSave = true;
 					trouble.enable = true;
+				};
+
+				debugger = {
+					nvim-dap = {
+						enable = true;
+						ui.enable = true;
+					};
 				};
 
 				languages = {
@@ -48,6 +56,7 @@
 				};
 
 				autocomplete = {
+					nvim-cmp.enable = false;
 					blink-cmp.enable = true;	
 				};
 
@@ -69,6 +78,8 @@
 				};
 
 				visuals = {
+					nvim-web-devicons.enable = true;
+					cinnamon-nvim.enable = true;
 					cellular-automaton.enable = true;
 				};
 
