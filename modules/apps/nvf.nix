@@ -20,6 +20,7 @@
 				};
 
 				telescope.enable = true;
+				treesitter.context.enable = true;
 				autocomplete.nvim-cmp.enable = true;
 
 				lsp = {
@@ -63,13 +64,19 @@
 					comment-nvim.enable = true;
 				};
 
+				notify = {
+					nvim-notify.enable = true;
+				};
+
 				visuals = {
 					cellular-automaton.enable = true;
 				};
 
 				utility = {
+					ccc.enable = true;
 					surround.enable = true;
 					smart-splits.enable = true;
+					icon-picker.enable = true;
 					leetcode-nvim = {
 						enable = true;
 						setupOpts = {
@@ -81,6 +88,10 @@
 							};
 						};
 					};
+				};
+
+				ui = {
+					borders.enable = true;
 				};
 
 				keymaps = [
