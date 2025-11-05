@@ -49,6 +49,7 @@
           ./modules/common/dev.nix
           ./modules/common/shell.nix
           ./modules/hosts/laptop.nix
+		  ./modules/apps
         ];
 
         extraSpecialArgs = {
