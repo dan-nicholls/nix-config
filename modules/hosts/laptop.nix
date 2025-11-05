@@ -7,7 +7,10 @@
   zenModule,
   ...
 }: {
-  imports = [zenModule];
+  	imports = [
+  		zenModule
+	];
+
   programs.zen-browser.enable = true;
 
   nixGL.packages = nixglPkgs;
@@ -37,6 +40,11 @@
     lan-mouse
     obsidian
   ];
+
+  programs.anki = {
+	enable = true;
+	package = config.lib.nixGL.wrap pkgs.anki;
+  };
 
   services.spotifyd = {
     enable = true;

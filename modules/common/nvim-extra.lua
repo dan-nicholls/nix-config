@@ -7,6 +7,10 @@ lspconfig.gopls.setup({})
 require("nvim-surround").setup({})
 require("octo").setup({})
 
+-- Debugger
+require("dapui").setup()
+require("dap-go").setup()
+
 vim.g.mapleader = " "
 
 -- Theme
@@ -84,6 +88,11 @@ vim.keymap.set("n", "<leader>gu", "<cmd>Git push<CR>", {desc = "Git Push"})
 vim.keymap.set("n", "<leader>gp", "<cmd>Git pull<CR>", {desc = "Git Pull"})
 vim.keymap.set("n", "<leader>gb", "<cmd>Git blame<CR>", {desc = "Git Blame"})
 vim.keymap.set("n", "<leader>gd", "<cmd>Git diff<CR>", {desc = "Git Diff"})
+
+-- Leetcode Keybindings
+vim.keymap.set("n", "<leader>lt", "<cmd>Leet test<CR>", {desc = "Leet Test"})
+vim.keymap.set("n", "<leader>ls", "<cmd>Leet submit<CR>", {desc = "Leet Submit"})
+vim.keymap.set("n", "<leader>ll", "<cmd>Leet list<CR>", {desc = "Leet List"})
 
 -- Other Keybindings
 vim.keymap.set("n", "<Tab>", "<cmd>bnext<CR>", {desc = "Next Buffer"})

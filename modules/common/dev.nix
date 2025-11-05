@@ -61,9 +61,13 @@
       nvim-treesitter-parsers.gotmpl
       octo-nvim
       blink-cmp
+	  nvim-dap
+	  nvim-dap-go
+	  nvim-dap-ui
+	  nvim-nio
     ];
     extraConfig = ''
-      colorscheme catpuccin
+      colorscheme catppuccin
       set number
       set tabstop=4
       set shiftwidth=4
@@ -85,6 +89,8 @@
     yazi
     go
     gopls
+	delve
+	gotests
     gnumake
     hyperfine
     fselect
@@ -117,6 +123,7 @@
       gitcm = "git diff --staged | sgpt \"make me a very brief conventional commit message\" --code";
       glog = "git log --oneline -n 10 --color=always | cat";
       sp = "spotify_player";
+	  nixrgl = "nix run --impure github:nix-community/nixGL --";
     };
     antidote = {
       enable = true;
