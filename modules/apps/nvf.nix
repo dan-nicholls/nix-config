@@ -1,0 +1,208 @@
+{ config, pkgs, lib, ... }:
+{
+	programs.nvf = {
+		enable = true;
+
+		settings = {
+			vim = {
+				theme = {
+					enable = true;
+					name = "catppuccin";
+					style = "mocha";
+					transparent = true;
+				};
+				
+				statusline = {
+					lualine = {
+						enable = true;
+						theme = "catppuccin";
+					};
+				};
+
+				telescope.enable = true;
+				autocomplete.nvim-cmp.enable = true;
+
+				lsp = {
+					enable = true;
+					
+					formatOnSave = true;
+					trouble.enable = true;
+				};
+
+				languages = {
+					enableFormat = true;
+					enableTreesitter = true;
+					enableExtraDiagnostics = true;
+
+					nix.enable = true;
+					markdown.enable = true;
+					
+					# Enable languages here
+					bash.enable = true;
+					python.enable = true;
+					go.enable = true;
+					html.enable = true;
+					css.enable = true;
+					lua.enable = true;
+				};
+
+				autocomplete = {
+					blink-cmp.enable = true;	
+				};
+
+				git = {
+					enable = true;
+				};
+
+				binds = {
+					whichKey.enable = true;
+					cheatsheet.enable = true;
+				};
+
+				comments = {
+					comment-nvim.enable = true;
+				};
+
+				visuals = {
+					cellular-automaton.enable = true;
+				};
+
+				utility = {
+					surround.enable = true;
+					smart-splits.enable = true;
+					leetcode-nvim = {
+						enable = true;
+						setupOpts = {
+							lang = "golang";
+							storage = {
+								home = lib.generators.mkLuaInline ''
+									"${config.home.homeDirectory}/Repos/leetcode"
+								'';
+							};
+						};
+					};
+				};
+
+				keymaps = [
+					# Fugitive Keybinds
+					{
+						desc = "Git Status";
+						key = "<leader>gs";
+						mode = "n";
+						silent = true;
+						action = "<cmd>Git<CR>";
+					}
+					{
+						desc = "Git Push";
+						key = "<leader>gu";
+						mode = "n";
+						silent = true;
+						action = "<cmd>Git push<CR>";
+					}
+					{
+						desc = "Git Pull";
+						key = "<leader>gp";
+						mode = "n";
+						silent = true;
+						action = "<cmd>Git pull<CR>";
+					}
+					{
+						desc = "Git Blame";
+						key = "<leader>gb";
+						mode = "n";
+						silent = true;
+						action = "<cmd>Git blame<CR>";
+					}
+					{
+						desc = "Git diff";
+						key = "<leader>gd";
+						mode = "n";
+						silent = true;
+						action = "<cmd>Git diff<CR>";
+					}
+
+					# Leetcode Keybinds
+					{
+						desc = "Leet Test";
+						key = "<leader>lt";
+						mode = "n";
+						silent = true;
+						action = "<cmd>Leet test<CR>";
+					}
+					{
+						desc = "Leet Submit";
+						key = "<leader>ls";
+						mode = "n";
+						silent = true;
+						action = "<cmd>Leet submit<CR>";
+					}
+					{
+						desc = "Leet List";
+						key = "<leader>ll";
+						mode = "n";
+						silent = true;
+						action = "<cmd>Leet list<CR>";
+					}
+
+					# Other
+					{
+						desc = "Move Left";
+						key = "<C-h>";
+						mode = "i";
+						silent = true;
+						action = "<Left>";
+					}
+					{
+						desc = "Move Down";
+						key = "<C-j>";
+						mode = "i";
+						silent = true;
+						action = "<Down>";
+					}
+					{
+						desc = "Move Up";
+						key = "<C-k>";
+						mode = "i";
+						silent = true;
+						action = "<Up>";
+					}
+					{
+						desc = "Move Right";
+						key = "<C-l>";
+						mode = "i";
+						silent = true;
+						action = "<Right>";
+					}
+					{
+						desc = "Save Buffer";
+						key = "<C-s>";
+						mode = "n";
+						silent = true;
+						action = ":w<CR>";
+					}
+					{
+						desc = "Copy Buffer";
+						key = "<C-c>";
+						mode = "n";
+						silent = true;
+						action = ":%y+<CR>";
+					}
+					{
+						desc = "Next Buffer";
+						key = "<Tab>";
+						mode = "n";
+						silent = true;
+						action = "<cmd>next<CR>";
+					}
+					{
+						desc = "Previous Buffer";
+						key = "<S-Tab>";
+						mode = "n";
+						silent = true;
+						action = "<cmd>bprevious<CR>";
+					}
+				];
+			};
+		};
+	};
+}
