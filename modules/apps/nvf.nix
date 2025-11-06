@@ -5,6 +5,12 @@
 
 		settings = {
 			vim = {
+				options = {
+					scrolloff = 4;
+					shiftwidth = 4;
+					tabstop = 4;
+				};
+
 				theme = {
 					enable = true;
 					name = "catppuccin";
@@ -222,6 +228,13 @@
 						mode = "n";
 						silent = true;
 						action = "<cmd>bprevious<CR>";
+					}
+					{
+						desc = "Open Explore";
+						key = "<C-e>";
+						mode = "n";
+						silent = true;
+						action = "<cmd>Explore<CR>";
 					}
 				];
 			};
