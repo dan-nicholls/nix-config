@@ -1,32 +1,14 @@
 {
   config,
   pkgs,
-  lib,
-  nixglPkgs,
   deviceName ? "x1-carbon",
-  zenModule,
   ...
 }: {
-  	imports = [
-  		zenModule
-	];
-
-  programs.zen-browser.enable = true;
-
-  nixGL.packages = nixglPkgs;
-  #nixGL.defaultWrapper = "mesa";
-
-  programs.ghostty = {
-    enable = true;
-    package = config.lib.nixGL.wrap pkgs.ghostty;
-    settings = {
-      theme = "Gruvbox Dark";
-      background-opacity = 0.9;
-      font-family = "Terminess Nerd Font Mono";
-      #font-family = "JetbrainsMono NFM";
-      font-size = 15;
-    };
-  };
+  imports = [
+    ../apps/ghostty.nix
+    ../apps/zen.nix
+    ../common/nixgl.nix
+  ];
 
   home.packages = with pkgs; [
     rofi
@@ -40,6 +22,8 @@
     lan-mouse
     obsidian
   ];
+
+  programs.ghostty.settings.theme = "Gruvbox Dark";
 
   programs.anki = {
     enable = true;

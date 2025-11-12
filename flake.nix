@@ -22,10 +22,10 @@
       };
     };
 
-	nvf = {
-		url = "github:notashelf/nvf/v0.8";
-		inputs.nixpkgs.follows = "nixpkgs";
-	};
+    nvf = {
+      url = "github:notashelf/nvf/v0.8";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
@@ -51,14 +51,8 @@
       laptop = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         modules = [
-          nvf.homeManagerModules.default
-
-          ./modules/common/home.nix
-          ./modules/common/dev.nix
-          ./modules/common/shell.nix
+          ./modules/common
           ./modules/hosts/laptop.nix
-          ./modules/apps
-          ./modules/apps/nvf.nix
         ];
 
         extraSpecialArgs = {
@@ -66,15 +60,14 @@
           deviceName = "x1-carbon";
           nixglPkgs = nixglPkgs;
           zenModule = zen-browser.homeModules.twilight;
+          nvfHomeModule = nvf.homeManagerModules.default;
         };
       };
 
       desktop = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         modules = [
-          ./modules/common/home.nix
-          ./modules/common/dev.nix
-          ./modules/common/shell.nix
+          ./modules/common
           ./modules/hosts/desktop.nix
         ];
 
@@ -83,6 +76,7 @@
           deviceName = "dans-pc";
           zenModule = zen-browser.homeModules.twilight;
           nixglPkgs = nixglPkgs;
+          nvfHomeModule = nvf.homeManagerModules.default;
         };
       };
     };

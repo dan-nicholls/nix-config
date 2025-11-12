@@ -1,5 +1,9 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, nvfHomeModule, ... }:
 {
+	imports = [
+		nvfHomeModule
+	];
+
 	programs.nvf = {
 		enable = true;
 
