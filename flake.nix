@@ -34,7 +34,7 @@
     home-manager,
     nixGL,
     zen-browser,
-	nvf,
+    nvf,
     ...
   }: let
     system = "x86_64-linux";
@@ -51,14 +51,14 @@
       laptop = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         modules = [
-		  nvf.homeManagerModules.default
+          nvf.homeManagerModules.default
 
           ./modules/common/home.nix
           ./modules/common/dev.nix
           ./modules/common/shell.nix
           ./modules/hosts/laptop.nix
-		  ./modules/apps
-		  ./modules/apps/nvf.nix
+          ./modules/apps
+          ./modules/apps/nvf.nix
         ];
 
         extraSpecialArgs = {

@@ -20,7 +20,7 @@
     enable = true;
     package = config.lib.nixGL.wrap pkgs.ghostty;
     settings = {
-      theme = "GruvboxDark";
+      theme = "Gruvbox Dark";
       background-opacity = 0.9;
       font-family = "Terminess Nerd Font Mono";
       #font-family = "JetbrainsMono NFM";
@@ -42,8 +42,8 @@
   ];
 
   programs.anki = {
-	enable = true;
-	package = config.lib.nixGL.wrap pkgs.anki;
+    enable = true;
+    package = config.lib.nixGL.wrap pkgs.anki;
   };
 
   services.spotifyd = {
