@@ -8,6 +8,7 @@
     ../apps/ghostty.nix
     ../apps/zen.nix
     ../common/nixgl.nix
+    ../apps/hyprland.nix
   ];
 
   home.packages = with pkgs; [

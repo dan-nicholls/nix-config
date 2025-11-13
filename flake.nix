@@ -26,6 +26,9 @@
       url = "github:notashelf/nvf/v0.8";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    hyprland.url = "github:hyprwm/Hyprland";
+    hyprlock.url = "github:hyprwm/hyprutils";
   };
 
   outputs = {
@@ -35,6 +38,8 @@
     nixGL,
     zen-browser,
     nvf,
+    hyprland,
+    hyprlock,
     ...
   }: let
     system = "x86_64-linux";
@@ -46,6 +51,8 @@
     };
 
     nixglPkgs = nixGL.packages.${system};
+    hyprlandPkgs = hyprland.packages.${system};
+    hyprlockPkgs = hyprlock.packages.${system};
   in {
     homeConfigurations = {
       laptop = home-manager.lib.homeManagerConfiguration {
@@ -61,6 +68,8 @@
           nixglPkgs = nixglPkgs;
           zenModule = zen-browser.homeModules.twilight;
           nvfHomeModule = nvf.homeManagerModules.default;
+          hyprlandPkgs = hyprlandPkgs;
+          hyprlockPkgs = hyprlockPkgs;
         };
       };
 
