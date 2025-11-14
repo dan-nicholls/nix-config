@@ -4,13 +4,29 @@
   hyprlandPkgs,
   hyprlockPkgs,
   ...
-}: {
+}: let
+  wallpaper = ../backgrounds/2-forest.jpg;
+in {
   imports = [
     ../apps/waybar
     ../apps/rofi
   ];
 
   programs.hyprlock.enable = true;
+
+  services.hyprpaper = {
+    enable = true;
+    settings = {
+      splash = false;
+
+      preload = [
+        "${wallpaper}"
+      ];
+      wallpaper = [
+        "eDP-1,${wallpaper}"
+      ];
+    };
+  };
 
   programs.kitty.enable = true;
   wayland.windowManager.hyprland = {
