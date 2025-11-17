@@ -45,7 +45,7 @@
             "tooltip-format-ethernet": "⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
             "tooltip-format-disconnected": "Disconnected",
             "interval": 3,
-            "spacing": 1,
+            "spacing": 1
         },
         "battery": {
             "format": "{capacity}% {icon}",
@@ -73,7 +73,7 @@
             "format": "",
             "format-disabled": "󰂲",
             "format-connected": "",
-            "tooltip-format": "Devices connected: {num_connections}",
+            "tooltip-format": "Devices connected: {num_connections}"
         },
         "pulseaudio": {
             "format": "{icon}",
