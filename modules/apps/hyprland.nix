@@ -43,6 +43,8 @@ in {
         "eDP-1,preferred,0x0,1"
       ];
       env = [
+        "PATH,${config.home.homeDirectory}/.nix-profile/bin:$PATH"
+
         "XCURSOR_SIZE,32"
         "QT_AUTO_SCREEN_SCALE_FACTOR,1"
         "QT_ENABLE_HIGHDPI_SCALING,1"
