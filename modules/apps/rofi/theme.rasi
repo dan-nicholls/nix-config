@@ -1,5 +1,16 @@
+configuration {
+    modi: "drun,run,filebrowser,window";
+    show-icons: true;
+    display-drun:               "";
+    display-run:                "";
+    display-filebrowser:        "";
+    display-window:             "";
+	drun-display-format:        "{name}";
+	window-format:              "{w} · {c} · {t}";
+}
+
 * {
-    font: "monospace 18";
+    font: "monospace 14";
     background-color: transparent;
     text-color: #ebdbb2;
     margin: 0px;
@@ -9,6 +20,7 @@
 
 window {
     location:       center;
+    anchor: center;
     width:          520;
     border-radius:  24px;
     border:         2px;
@@ -17,19 +29,19 @@ window {
 }
 
 mainbox {
-    padding:    12px;
-    spacing:    8px;
+    padding:    30px;
+    spacing:    10px;
 }
 
 inputbar {
-    background-color:   #282828; /* bg0 */
+    background-color:   #282828;
     border-color:       #504945;
     border:             2px;
     border-radius:      16px;
 
     padding:            8px 16px;
     spacing:            8px;
-    children:           [ entry ];
+    children:           [ entry, mode-switcher ];
 }
 
 prompt {
@@ -40,6 +52,34 @@ entry {
     placeholder:        "Search";
     placeholder-color:  #bdae93;
     expand:             true;
+}
+
+/* Mode Switcher */
+mode-switcher{
+    enabled:                     true;
+    spacing:                     6px;
+    margin:                      0px;
+    padding:                     0px;
+    border:                      0px solid;
+    border-radius:               0px;
+    border-color:       #3c3836;
+    background-color:            transparent;
+    text-color: #d5c4a1;
+}
+
+button {
+    padding:                     5px 12px;
+    border:                      0px solid;
+    border-radius:               10px;
+    border-color:       #3c3836;
+    background-color:   #282828;
+    text-color:                  inherit;
+    cursor:                      pointer;
+}
+
+button selected {
+    background-color: rgba(80, 73, 69, 0.4);
+    text-color: #ebdbb2;
 }
 
 /* Small status / error messages under the bar */
