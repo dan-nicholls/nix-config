@@ -41,6 +41,11 @@ in {
       "$mod" = "SUPER";
       monitor = [
         "eDP-1,preferred,0x0,1"
+        "HDMI-A-1,preferred,auto,1"
+      ];
+      bindl = [
+        ",switch:on:Lid Switch,exec,hyprctl keyword monitor \"eDP-1,disable\""
+        ",switch:off:Lid Switch,exec,hyprctl keyword monitor \"eDP-1,preferred,0x0,1\""
       ];
       env = [
         "PATH,${config.home.homeDirectory}/.nix-profile/bin:$PATH"
