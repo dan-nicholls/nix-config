@@ -24,6 +24,7 @@ in {
       ];
       wallpaper = [
         "eDP-1,${wallpaper}"
+        "HDMI-A-1,${wallpaper}"
       ];
     };
   };
