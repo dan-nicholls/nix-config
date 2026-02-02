@@ -12,7 +12,27 @@ in {
     ../apps/rofi
   ];
 
-  programs.hyprlock.enable = true;
+  home.packages = with pkgs; [
+    brightnessctl
+    bluetui
+  ];
+
+  programs.hyprlock = {
+    enable = true;
+
+    settings = {
+      background = {
+        monitor = "";
+      };
+      input-field = {
+        monitor = "";
+        position = "0, -150";
+        size = "300, 50";
+        halign = "center";
+        valign = "center";
+      };
+    };
+  };
 
   services.hyprpaper = {
     enable = true;
@@ -74,7 +94,17 @@ in {
         "$mod, F, fullscreen"
         "$mod, T, togglefloating"
         "$mod, P, pseudo"
-        "$mod, L, exec, hyprlock"
+        "$mod, BackSpace, exec, hyprlock"
+
+        # Brightness
+        ",XF86MonBrightnessUp,exec,brightnessctl set 5%+"
+        ",XF86MonBrightnessDown,exec,brightnessctl set 5%-"
+
+        # Volume
+        ",XF86AudioRaiseVolume,exec,wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"
+        ",XF86AudioLowerVolume,exec,wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
+        ",XF86AudioMute,exec,wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+        ",XF86AudioMicMute,exec,wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
 
         # Change Focus
         "$mod, H, movefocus, l"
@@ -119,8 +149,7 @@ in {
         # Toggle split orientation
         "$mod, V, splitratio, -1"
 
-        "$mod, R, exec, ${config.home.homeDirectory}/.nix-profile/bin/rofi -show run"
-        "$mod, D, exec, ${config.home.homeDirectory}/.nix-profile/bin/rofi -show drun"
+        "$mod, R, exec, ${config.home.homeDirectory}/.nix-profile/bin/rofi -show drun"
       ];
       exec-once = ["waybar"];
     };
