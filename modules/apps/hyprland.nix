@@ -15,6 +15,8 @@ in {
   home.packages = with pkgs; [
     brightnessctl
     bluetui
+    grim
+    slurp
   ];
 
   programs.hyprlock = {
@@ -105,6 +107,9 @@ in {
         ",XF86AudioLowerVolume,exec,wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
         ",XF86AudioMute,exec,wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
         ",XF86AudioMicMute,exec,wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
+
+        # Screenshots
+        "$mod SHIFT,S,exec,grim -g \"$(slurp)\" - | wl-copy"
 
         # Change Focus
         "$mod, H, movefocus, l"
