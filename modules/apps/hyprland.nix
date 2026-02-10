@@ -17,6 +17,7 @@ in {
     bluetui
     grim
     slurp
+    swappy
   ];
 
   programs.hyprlock = {
@@ -109,7 +110,8 @@ in {
         ",XF86AudioMicMute,exec,wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
 
         # Screenshots
-        "$mod SHIFT,S,exec,grim -g \"$(slurp)\" - | wl-copy"
+        "$mod, S,exec,grim -g \"$(slurp)\" - | wl-copy"
+        "$mod SHIFT,S,exec,grim -g \"$(slurp)\" - | swappy -f -"
 
         # Change Focus
         "$mod, H, movefocus, l"
