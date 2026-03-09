@@ -16,6 +16,7 @@
     gnomeExtensions.power-tracker
     gnome-extension-manager
     spotifyd
+    discord
     nerd-fonts.jetbrains-mono
     nerd-fonts.terminess-ttf
     deskflow
