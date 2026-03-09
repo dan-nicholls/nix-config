@@ -20,6 +20,45 @@
     "$HOME/go/bin"
   ];
 
+  home.packages = with pkgs; [
+    (writeShellScriptBin "check-swaylock" ''
+      #!/usr/bin/env bash
+      set -euo pipefail
+
+      if command -v /usr/bin/swaylock >/dev/null 2>&1; then
+        echo "swaylock is already installed at /usr/bin/swaylock"
+        exit 0
+      fi
+
+      if command -v dpkg >/dev/null 2>&1 && dpkg -s swaylock >/dev/null 2>&1; then
+        echo "swaylock is already installed (dpkg reports installed)"
+        exit 0
+      fi
+
+      printf "swaylock is not installed. Install with apt now? [y/N]: "
+      read -r reply
+      case "''${reply}" in
+        y|Y)
+          if ! command -v sudo >/dev/null 2>&1; then
+            echo "sudo not found; cannot install swaylock"
+            exit 1
+          fi
+          sudo apt update
+          sudo apt install -y swaylock
+          ;;
+        *)
+          echo "Skipped install"
+          ;;
+      esac
+    '')
+  ];
+
+  home.activation.warnMissingSwaylock = config.lib.dag.entryAfter ["writeBoundary"] ''
+    if [ ! -x /usr/bin/swaylock ]; then
+      echo "warning: swaylock is not installed; run check-swaylock to install"
+    fi
+  '';
+
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 }

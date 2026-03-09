@@ -5,6 +5,7 @@
   hyprlockPkgs,
   ...
 }: let
+  lockCmd = "/usr/bin/swaylock";
   wallpaper = ../backgrounds/2-forest.jpg;
 in {
   imports = [
@@ -16,6 +17,7 @@ in {
     brightnessctl
     bluetui
     grim
+    hypridle
     slurp
     swappy
   ];
@@ -37,6 +39,26 @@ in {
     };
   };
 
+  services.hypridle = {
+    enable = true;
+    settings = {
+      general = {
+        lock_cmd = lockCmd;
+        before_sleep_cmd = lockCmd;
+      };
+      listener = [
+        {
+          timeout = 300;
+          on-timeout = lockCmd;
+        }
+        {
+          timeout = 1200;
+          on-timeout = "systemctl hibernate";
+        }
+      ];
+    };
+  };
+
   services.hyprpaper = {
     enable = true;
     settings = {
@@ -51,6 +73,37 @@ in {
       ];
     };
   };
+
+  home.file.".config/swaylock/config".text = ''
+    show-failed-attempts
+    indicator-idle-visible
+    indicator-radius=90
+    indicator-thickness=8
+    line-uses-ring
+    font=JetBrainsMono Nerd Font
+    font-size=24
+    image=${wallpaper}
+    scaling=fill
+    color=1b1f2a
+    inside-color=02010188
+    ring-color=393726cc
+    ring-clear-color=816844ff
+    ring-ver-color=9b7b52ff
+    ring-wrong-color=7a3b2bff
+    key-hl-color=816844ff
+    inside-clear-color=020101aa
+    inside-ver-color=020101aa
+    inside-wrong-color=020101aa
+    line-color=00000000
+    line-clear-color=00000000
+    line-ver-color=00000000
+    line-wrong-color=00000000
+    separator-color=00000000
+    text-color=e6e1d6ff
+    text-ver-color=e6e1d6ff
+    text-wrong-color=e6e1d6ff
+    text-clear-color=e6e1d6ff
+  '';
 
   programs.kitty.enable = true;
   wayland.windowManager.hyprland = {
@@ -97,7 +150,9 @@ in {
         "$mod, F, fullscreen"
         "$mod, T, togglefloating"
         "$mod, P, pseudo"
-        "$mod, BackSpace, exec, hyprlock"
+        "$mod, BackSpace, exec, ${lockCmd}"
+        "$mod SHIFT, BackSpace, exec, systemctl hibernate"
+        ",XF86Sleep,exec,systemctl hibernate"
 
         # Brightness
         ",XF86MonBrightnessUp,exec,brightnessctl set 5%+"
