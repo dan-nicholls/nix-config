@@ -17,10 +17,40 @@ in {
     brightnessctl
     bluetui
     grim
+    libnotify
     hypridle
+    mako
     slurp
     swappy
+    upower
+    (writeShellScriptBin "battery-warn" (builtins.readFile ./scripts/battery-warn.sh))
   ];
+
+  services.mako.enable = true;
+
+  systemd.user.services.battery-warn = {
+    Unit = {
+      Description = "Battery low warning";
+      After = ["graphical-session.target"];
+    };
+    Service = {
+      Type = "oneshot";
+      ExecStart = "${config.home.homeDirectory}/.nix-profile/bin/battery-warn";
+    };
+  };
+
+  systemd.user.timers.battery-warn = {
+    Unit = {
+      Description = "Battery low warning timer";
+    };
+    Timer = {
+      OnBootSec = "2m";
+      OnUnitActiveSec = "2m";
+    };
+    Install = {
+      WantedBy = ["timers.target"];
+    };
+  };
 
   programs.hyprlock = {
     enable = true;
