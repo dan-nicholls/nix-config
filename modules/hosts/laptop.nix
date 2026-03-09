@@ -22,6 +22,7 @@
     tailscale
     lan-mouse
     obsidian
+    localsend
   ];
 
   programs.ghostty.settings.theme = "Gruvbox Dark";
