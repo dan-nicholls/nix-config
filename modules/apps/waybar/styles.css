@@ -59,6 +59,9 @@ tooltip {
 
 #clock {
   margin-left: 8.75px;
+  font-size: 13pt;
+  font-family: "JetBrainsMono Nerd Font";
+  font-weight: 400;
 }
 
 .hidden {

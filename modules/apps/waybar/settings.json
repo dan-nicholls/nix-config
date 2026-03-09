@@ -32,8 +32,8 @@
             }
         },
         "clock": {
-            "format": "{:L%A %H:%M}",
-            "format-alt": "{:L%d %B %Y}"
+            "format": "{:L%a,  %b %e        %I:%M %p}",
+            "format-alt": "{:L%A, %e %B %Y   %H:%M}"
         },
         "network": {
             "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
