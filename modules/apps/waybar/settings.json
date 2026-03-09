@@ -7,7 +7,7 @@
         "height": 26,
         "modules-left": ["hyprland/workspaces"],
         "modules-center": ["clock"],
-        "modules-right": ["group/tray-expander", "bluetooth", "network", "pulseaudio", "cpu", "battery"],
+        "modules-right": ["group/tray-expander", "bluetooth", "network", "pulseaudio", "cpu", "battery", "custom/power"],
         "hyprland/workspaces": {
             "on-click": "activate",
             "format": "{icon}",
@@ -99,6 +99,14 @@
         "tray": {
             "icon-size": 12,
             "spacing": 17
+        },
+        "custom/power": {
+            "format": "⏻",
+            "tooltip": true,
+            "tooltip-format": "Left: logout\nMiddle: reboot\nRight: poweroff",
+            "on-click": "loginctl terminate-user $USER",
+            "on-click-middle": "systemctl reboot",
+            "on-click-right": "systemctl poweroff"
         }
     }
 }
