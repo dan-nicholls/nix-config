@@ -43,6 +43,7 @@
     ...
   }: let
     system = "x86_64-linux";
+    zenVariant = "twilight";
     pkgs = import nixpkgs {
       system = "x86_64-linux";
       config = {
@@ -51,6 +52,7 @@
     };
 
     nixglPkgs = nixGL.packages.${system};
+    zenPackages = zen-browser.packages.${system};
     hyprlandPkgs = hyprland.packages.${system};
     hyprlockPkgs = hyprlock.packages.${system};
   in {
@@ -66,7 +68,9 @@
           hostRole = "laptop";
           deviceName = "x1-carbon";
           nixglPkgs = nixglPkgs;
-          zenModule = zen-browser.homeModules.twilight;
+          zenModule = zen-browser.homeModules.${zenVariant};
+          zenVariant = zenVariant;
+          zenPackages = zenPackages;
           nvfHomeModule = nvf.homeManagerModules.default;
           hyprlandPkgs = hyprlandPkgs;
           hyprlockPkgs = hyprlockPkgs;
@@ -83,7 +87,9 @@
         extraSpecialArgs = {
           hostRole = "desktop";
           deviceName = "dans-pc";
-          zenModule = zen-browser.homeModules.twilight;
+          zenModule = zen-browser.homeModules.${zenVariant};
+          zenVariant = zenVariant;
+          zenPackages = zenPackages;
           nixglPkgs = nixglPkgs;
           nvfHomeModule = nvf.homeManagerModules.default;
         };
