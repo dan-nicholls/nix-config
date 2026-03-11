@@ -248,7 +248,7 @@ in {
 
         "$mod, R, exec, ${config.home.homeDirectory}/.nix-profile/bin/rofi -show drun"
       ];
-      exec-once = ["waybar"];
+
     };
   };
 }

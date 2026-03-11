@@ -8,7 +8,7 @@
 in {
   programs.waybar = {
     enable = true;
-    systemd.enable = false;
+    systemd.enable = true;
     style = ./styles.css;
     settings = waybarSettings;
   };
