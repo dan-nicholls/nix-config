@@ -143,7 +143,7 @@ in {
   programs.kitty.enable = true;
   wayland.windowManager.hyprland = {
     enable = true;
-    package = config.lib.nixGL.wrap hyprlandPkgs.hyprland;
+    package = config.lib.nixGL.wrap pkgs.hyprland;
     portalPackage = hyprlandPkgs.xdg-desktop-portal-hyprland;
 
     xwayland.enable = true;
@@ -248,7 +248,6 @@ in {
 
         "$mod, R, exec, ${config.home.homeDirectory}/.nix-profile/bin/rofi -show drun"
       ];
-
     };
   };
 }
