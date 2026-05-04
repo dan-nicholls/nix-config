@@ -1,3 +1,7 @@
-{ lib, nixglPkgs, ... }: {
-  nixGL.packages = lib.mkDefault nixglPkgs;
+{
+  lib,
+  nixglPkgs,
+  ...
+}: {
+  targets.genericLinux.nixGL.packages = lib.mkDefault nixglPkgs;
 }
