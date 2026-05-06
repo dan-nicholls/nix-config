@@ -33,5 +33,6 @@
     gh
     fd
     bat
+    httpie
   ];
 }
