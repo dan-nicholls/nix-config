@@ -162,7 +162,10 @@ in {
       env = [
         "PATH,${config.home.homeDirectory}/.nix-profile/bin:$PATH"
 
-        "XCURSOR_SIZE,32"
+        "HYPRCURSOR_THEME,Bibata-Modern-Classic"
+        "HYPRCURSOR_SIZE,28"
+        "XCURSOR_THEME,Bibata-Modern-Classic"
+        "XCURSOR_SIZE,28"
         "QT_AUTO_SCREEN_SCALE_FACTOR,1"
         "QT_ENABLE_HIGHDPI_SCALING,1"
       ];

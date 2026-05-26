@@ -13,12 +13,24 @@
     EDITOR = "nvim";
     VISUAL = "nvim";
     GOPATH = "$HOME/go";
+    XCURSOR_THEME = "Bibata-Modern-Classic";
+    XCURSOR_SIZE = "28";
+    HYPRCURSOR_THEME = "Bibata-Modern-Classic";
+    HYPRCURSOR_SIZE = "28";
   };
 
   home.sessionPath = [
     "$HOME/.nix-profile/bin"
     "$HOME/go/bin"
   ];
+
+  home.pointerCursor = {
+    name = "Bibata-Modern-Classic";
+    package = pkgs.bibata-cursors;
+    size = 24;
+    gtk.enable = true;
+    x11.enable = false;
+  };
 
   home.packages = with pkgs; [
     (writeShellScriptBin "check-swaylock" ''
