@@ -78,6 +78,7 @@
         "pulseaudio": {
             "format": "{icon}",
             "tooltip-format": "Playing at {volume}%",
+            "on-click": "audio-select",
             "scroll-step": 5,
             "format-muted": "",
             "format-icons": {
