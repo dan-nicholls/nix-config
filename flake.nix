@@ -7,6 +7,7 @@
       modules = [
         ./hosts/x1-carbon/configuration.nix
 	./modules/apps/tmux.nix
+	./modules/common/caps-swap-tty.nix
       ];
     };
   };
