@@ -10,7 +10,6 @@
 in {
   imports = [
     ../apps/waybar
-    ../apps/rofi
   ];
 
   home.packages = with pkgs; [

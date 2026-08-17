@@ -22,6 +22,7 @@
         ./modules/common/caps-swap-tty.nix
         ./modules/apps/nvf.nix
         ./modules/desktop/hyprland.nix
+        ./modules/desktop/rofi.nix
         ./modules/desktop/waybar.nix
         ./modules/common/shell.nix
         ./modules/desktop/ghostty.nix

@@ -28,7 +28,7 @@ hl.bind(mod .. " + Return", hl.dsp.exec_cmd("ghostty"))
 hl.bind(mod .. " + Q", hl.dsp.window.close())
 hl.bind(mod .. " + M", hl.dsp.exec_cmd("hyprctl dispatch exit"))
 hl.bind(mod .. " + F", hl.dsp.exec_cmd("hyprctl dispatch fullscreen"))
-hl.bind(mod .. " + R", hl.dsp.exec_cmd("rofi -show drun"))
+hl.bind(mod .. " + R", hl.dsp.exec_cmd("rofi -show drun -theme /etc/xdg/rofi/theme.rasi"))
 
 -- Change Workspace
 hl.bind(mod .. " + 1", hl.dsp.focus({ workspace = 1 }))
