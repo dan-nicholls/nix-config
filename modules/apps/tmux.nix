@@ -6,10 +6,11 @@
 }: {
   programs.tmux = {
     enable = true;
-    prefix = "C-space";
+    #prefix = "C-space";
+    shortcut = "space";
     baseIndex = 1;
     keyMode = "vi";
-    mouse = true;
+    #mouse = true;
     escapeTime = 0;
 
     plugins = with pkgs.tmuxPlugins; [
@@ -17,18 +18,18 @@
       gruvbox
       yank
       vim-tmux-navigator
-      {
-        plugin = resurrect;
-        extraConfig = "set -g @resurrect-strategy-nvim 'session'";
-      }
-      {
-        plugin = continuum;
-        extraConfig = ''
-          set -g @continuum-restore 'on'
-          set -g @continuum-save-interval '30' # minutes
-          set -g renumber-windows on
-        '';
-      }
+      #{
+        #plugin = resurrect;
+        #extraConfig = "set -g @resurrect-strategy-nvim 'session'";
+      #}
+      #{
+        #plugin = continuum;
+        #extraConfig = ''
+          #set -g @continuum-restore 'on'
+          #set -g @continuum-save-interval '30' # minutes
+          #set -g renumber-windows on
+        #'';
+      #}
     ];
 
     extraConfig = ''
@@ -38,6 +39,7 @@
 
       bind '"' split-window -v -c "#{pane_current_path}"
       bind % split-window -h -c "#{pane_current_path}"
+      set -g mouse on
     '';
   };
 }

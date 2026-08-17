@@ -6,6 +6,7 @@
       system = "x86_64-linux";
       modules = [
         ./hosts/x1-carbon/configuration.nix
+	./modules/apps/tmux.nix
       ];
     };
   };
