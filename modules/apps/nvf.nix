@@ -2,12 +2,12 @@
   config,
   pkgs,
   lib,
-  nvfHomeModule,
+  #nvfHomeModule,
   ...
 }: {
-  imports = [
-    nvfHomeModule
-  ];
+#  imports = [
+#    nvfHomeModule
+#  ];
 
   programs.nvf = {
     enable = true;
@@ -106,17 +106,17 @@
           };
           smart-splits.enable = true;
           icon-picker.enable = true;
-          leetcode-nvim = {
-            enable = true;
-            setupOpts = {
-              lang = "golang";
-              storage = {
-                home = lib.generators.mkLuaInline ''
-                  "${config.home.homeDirectory}/Repos/leetcode"
-                '';
-              };
-            };
-          };
+#          leetcode-nvim = {
+#            enable = true;
+#            setupOpts = {
+#              lang = "golang";
+#              storage = {
+#                home = lib.generators.mkLuaInline ''
+#                  "${config.home.homeDirectory}/Repos/leetcode"
+#                '';
+#              };
+#            };
+#          };
         };
 
         ui = {
