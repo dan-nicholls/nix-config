@@ -21,6 +21,7 @@
         ./modules/apps/tmux.nix
         ./modules/common/caps-swap-tty.nix
         ./modules/apps/nvf.nix
+        ./modules/desktop/hyprland.nix
       ];
     };
   };
