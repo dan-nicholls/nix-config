@@ -22,6 +22,7 @@
         ./modules/common/caps-swap-tty.nix
         ./modules/apps/nvf.nix
         ./modules/desktop/hyprland.nix
+        ./modules/desktop/waybar.nix
       ];
     };
   };

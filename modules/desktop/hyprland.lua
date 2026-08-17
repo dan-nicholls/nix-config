@@ -1,5 +1,9 @@
 local mod = "SUPER"
 
+hl.on("hyprland.start", function()
+    hl.exec_cmd("waybar --config /etc/xdg/waybar/config --style /etc/xdg/waybar/style.css")
+end)
+
 hl.monitor({
     output = "",
     mode = "preferred",
