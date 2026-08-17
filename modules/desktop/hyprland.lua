@@ -1,6 +1,7 @@
 local mod = "SUPER"
 
 hl.on("hyprland.start", function()
+    hl.exec_cmd("hyprpaper --config /etc/xdg/hypr/hyprpaper.conf")
     hl.exec_cmd("waybar --config /etc/xdg/waybar/config --style /etc/xdg/waybar/style.css")
 end)
 

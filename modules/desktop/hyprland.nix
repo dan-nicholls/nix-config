@@ -1,7 +1,11 @@
-{pkgs, ...}: {
+{pkgs, ...}: let
+  wallpaper = ../../assets/backgrounds/2-forest.jpg;
+in {
   programs.hyprland = {
     enable = true;
   };
+
+  environment.systemPackages = [pkgs.hyprpaper];
 
   services.greetd = {
     enable = true;
@@ -17,4 +21,9 @@
   };
 
   environment.etc."xdg/hypr/hyprland.lua".source = ./hyprland.lua;
+  environment.etc."xdg/hypr/hyprpaper.conf".text = ''
+    splash = false
+    preload = ${wallpaper}
+    wallpaper = ,${wallpaper}
+  '';
 }
