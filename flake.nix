@@ -23,6 +23,8 @@
         ./modules/apps/nvf.nix
         ./modules/desktop/hyprland.nix
         ./modules/desktop/waybar.nix
+        ./modules/common/shell.nix
+        ./modules/desktop/ghostty.nix
       ];
     };
   };

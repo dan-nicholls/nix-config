@@ -1,83 +1,51 @@
-{
-  config,
-  pkgs,
-  lib,
-  ...
-}: {
+{pkgs, ...}: {
+  users.users.dannicholls.shell = pkgs.zsh;
+
+  environment.systemPackages = with pkgs; [
+    eza
+    fzf
+    oh-my-posh
+    zoxide
+    zsh-fzf-tab
+    zsh-vi-mode
+  ];
+
   programs.zsh = {
     enable = true;
+    enableCompletion = true;
+
     shellAliases = {
       ls = "eza";
-      hms = "home-manager switch --flake ~/nix-config#{hostRole}";
+      nrs = "sudo nixos-rebuild switch --flake ~/Repos/nix-config#x1-carbon";
       gitcm = "git diff --staged | sgpt \"make me a very brief conventional commit message\" --code";
       glog = "git log --oneline -n 10 --color=always | cat";
       sp = "spotify_player";
       nixrgl = "nix run --impure github:nix-community/nixGL --";
     };
-    antidote = {
-      enable = true;
-      plugins = [
-        "zsh-users/zsh-autosuggestions"
-        "zsh-users/zsh-syntax-highlighting"
-        "Aloxaf/fzf-tab"
-        "jeffreytse/zsh-vi-mode"
-      ];
-    };
-    history = {
-      size = 5000;
-      save = 5000;
-      ignoreDups = true;
-      ignoreAllDups = true;
-      ignoreSpace = true;
-      saveNoDups = true;
-      share = true;
-      findNoDups = true;
-      extended = true;
-    };
-    # Ensure Ctrl R is always fzf-history
-    #initExtra = "bindkey '^R' fzf-history-widget";
-    initExtra = ''
-      # Source Home Manager session vars
-      if [ -f "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh" ]; then
-      	source "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh"
-      fi
-    '';
-  };
 
-  programs.oh-my-posh = {
-    enable = true;
-    enableZshIntegration = true;
-    settings = builtins.fromJSON (builtins.readFile ./oh-my-zsh.json);
-  };
-
-  programs.fzf = {
-    enable = true;
-    enableZshIntegration = true;
-  };
-
-  programs.zoxide = {
-    enable = true;
-    enableZshIntegration = true;
-    options = [
-      "--cmd cd"
+    histSize = 5000;
+    histFile = "$HOME/.zsh_history";
+    setOptions = [
+      "HIST_IGNORE_DUPS"
+      "HIST_IGNORE_SPACE"
+      "HIST_EXPIRE_DUPS_FIRST"
+      "HIST_SAVE_NO_DUPS"
+      "HIST_FIND_NO_DUPS"
+      "SHARE_HISTORY"
+      "EXTENDED_HISTORY"
     ];
+
+    interactiveShellInit = ''
+      source ${pkgs.zsh-autosuggestions}/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+      source ${pkgs.zsh-fzf-tab}/share/fzf-tab/fzf-tab.plugin.zsh
+      source ${pkgs.zsh-vi-mode}/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
+      source ${pkgs.fzf}/share/fzf/key-bindings.zsh
+      source ${pkgs.fzf}/share/fzf/completion.zsh
+      eval "$(${pkgs.zoxide}/bin/zoxide init zsh --cmd cd)"
+      eval "$(${pkgs.oh-my-posh}/bin/oh-my-posh init zsh --config ${./oh-my-zsh.json})"
+      source ${pkgs.zsh-syntax-highlighting}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+    '';
+
+    promptInit = "";
   };
-
-  # Ensures shell variables are passed correctly
-  targets.genericLinux.enable = true;
-
-  # Ensures ZSH gets set to the default shell
-  home.activation.make-zsh-default-shell = lib.hm.dag.entryAfter ["writeBoundary"] ''
-    PATH="/usr/bin:/bin:$PATH"
-    ZSH_PATH="${config.home.homeDirectory}/.nix-profile/bin/zsh"
-    if [[ $(getent passwd ${config.home.username}) != *"$ZSH_PATH" ]]; then
-      echo "setting zsh as default shell (using chsh). password might be necessary."
-      if ! grep -q "$ZSH_PATH" /etc/shells; then
-        echo "adding zsh to /etc/shells"
-        run echo "$ZSH_PATH" | sudo tee -a /etc/shells
-      fi
-      run chsh -s $ZSH_PATH ${config.home.username}
-      echo "zsh is now set as default shell!"
-    fi
-  '';
 }
