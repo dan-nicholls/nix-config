@@ -23,7 +23,10 @@ in {
   environment.etc."xdg/hypr/hyprland.lua".source = ./hyprland.lua;
   environment.etc."xdg/hypr/hyprpaper.conf".text = ''
     splash = false
-    preload = ${wallpaper}
-    wallpaper = ,${wallpaper}
+
+    wallpaper {
+      monitor = *
+      path = ${wallpaper}
+    }
   '';
 }

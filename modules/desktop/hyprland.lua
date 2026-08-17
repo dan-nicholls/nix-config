@@ -22,6 +22,12 @@ hl.config({
         gaps_out = 10,
         border_size = 1,
     },
+
+    cursor = {
+        inactive_timeout = 3,
+        hide_on_key_press = true,
+        hide_on_touch = true,
+    },
 })
 
 -- Basic Keybinds
