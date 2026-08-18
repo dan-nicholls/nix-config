@@ -5,12 +5,32 @@ hl.on("hyprland.start", function()
     hl.exec_cmd("waybar --config /etc/xdg/waybar/config --style /etc/xdg/waybar/style.css")
 end)
 
-hl.monitor({
-    output = "",
+local laptop_display = {
+    output = "eDP-1",
     mode = "preferred",
-    position = "auto",
+    position = "0x0",
     scale = 1,
-})
+    disabled = false,
+}
+
+hl.monitor(laptop_display)
+
+function disableLaptopDisplay()
+    hl.monitor({
+        output = laptop_display.output,
+        disabled = true,
+    })
+end
+
+function enableLaptopDisplay()
+    hl.monitor(laptop_display)
+    --os.execute("hyprctl reload")
+end
+
+-- close lid
+hl.bind("switch:on:Lid Switch", disableLaptopDisplay, { locked = true })
+-- open lid
+hl.bind("switch:off:Lid Switch", enableLaptopDisplay, { locked = true })
 
 hl.config({
     input = {

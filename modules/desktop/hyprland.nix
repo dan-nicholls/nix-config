@@ -5,6 +5,11 @@ in {
     enable = true;
   };
 
+  services.logind.settings.Login = {
+    HandleLidSwitch = "ignore";
+    HandleLidSwitchDocked = "ignore";
+  };
+
   environment.systemPackages = [pkgs.hyprpaper];
 
   services.greetd = {
