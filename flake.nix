@@ -12,6 +12,10 @@
       url = "github:NotAShelf/nvf";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    zen-browser = {
+      url = "github:0xc000022070/zen-browser-flake";
+    };
   };
 
   outputs = inputs:
@@ -24,8 +28,11 @@
         ./modules/desktop/hyprland.nix
         ./modules/apps/tmux.nix
         ./modules/apps/nvf.nix
+        ./modules/desktop/zen.nix
         ./modules/desktop/niri.nix
         ./modules/desktop/noctalia.nix
+        ./modules/common/dev.nix
+        ./modules/desktop/ghostty.nix
       ];
     };
   #(inputs.import-tree ./modules);
