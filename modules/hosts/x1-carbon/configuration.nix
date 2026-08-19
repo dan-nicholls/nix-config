@@ -76,6 +76,7 @@
       git
       opencode
       terminus_font
+      firefox
     ];
 
     # Some programs need SUID wrappers, can be configured further or are
