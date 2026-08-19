@@ -2,31 +2,28 @@
   description = "nixOS configuration";
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05";
+
+    flake-parts.url = "github:hercules-ci/flake-parts";
+    import-tree.url = "github:vic/import-tree";
+
+    wrapper-modules.url = "github:BirdeeHub/nix-wrapper-modules";
+
     nvf = {
       url = "github:NotAShelf/nvf";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = {
-    nixpkgs,
-    nvf,
-    ...
-  }: {
-    nixosConfigurations.x1-carbon = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
-      modules = [
-        nvf.nixosModules.default
+  outputs = inputs:
+    inputs.flake-parts.lib.mkFlake {inherit inputs;} {
+      systems = ["x86_64-linux"];
+      imports = [
+        ./modules/hosts/x1-carbon/default.nix
         ./modules/hosts/x1-carbon/configuration.nix
-        ./modules/apps/tmux.nix
-        ./modules/common/caps-swap-tty.nix
-        ./modules/apps/nvf.nix
-        ./modules/desktop/hyprland.nix
-        ./modules/desktop/rofi.nix
-        ./modules/desktop/waybar.nix
-        ./modules/common/shell.nix
-        ./modules/desktop/ghostty.nix
+        ./modules/hosts/x1-carbon/hardware-configuration.nix
+        ./modules/desktop/niri.nix
+        ./modules/desktop/noctalia.nix
       ];
     };
-  };
+  #(inputs.import-tree ./modules);
 }
