@@ -1,38 +1,44 @@
 {
-  config,
-  pkgs,
-  hostRole ? "laptop",
   self,
+  inputs,
   ...
 }: {
-  imports = [
-    ../apps/tmux.nix
-    ../apps/nvf.nix
-  ];
+  flake.nixosModules.devTools = {
+    config,
+    pkgs,
+    ...
+  }: {
+    imports = [
+      self.nixosModules.tmux
+      self.nixosModules.nvim
+      ./shell.nix
+    ];
 
-  home.packages = with pkgs; [
-    git
-    curl
-    tree
-    tldr
-    eza
-    wl-clipboard
-    shell-gpt
-    ripgrep
-    yazi
-    go
-    gopls
-    delve
-    gotests
-    gnumake
-    hyperfine
-    fselect
-    wiki-tui
-    mask
-    mprocs
-    gh
-    fd
-    bat
-    httpie
-  ];
+    #home.packages = with pkgs; [
+    environment.systemPackages = with pkgs; [
+      git
+      curl
+      tree
+      tldr
+      eza
+      wl-clipboard
+      #shell-gpt
+      ripgrep
+      yazi
+      go
+      gopls
+      delve
+      gotests
+      gnumake
+      hyperfine
+      fselect
+      wiki-tui
+      mask
+      mprocs
+      gh
+      fd
+      bat
+      httpie
+    ];
+  };
 }
