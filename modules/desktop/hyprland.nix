@@ -12,6 +12,9 @@
       package = self.packages.${pkgs.stdenv.hostPlatform.system}.myHyprland;
     };
 
+    programs.hyprlock.enable = true;
+    services.hypridle.enable = true;
+
     services.logind.settings.Login = {
       HandleLidSwitch = "ignore";
       HandleLidSwitchDocked = "ignore";
