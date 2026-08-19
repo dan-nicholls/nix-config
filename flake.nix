@@ -21,6 +21,9 @@
         ./modules/hosts/x1-carbon/default.nix
         ./modules/hosts/x1-carbon/configuration.nix
         ./modules/hosts/x1-carbon/hardware-configuration.nix
+        ./modules/desktop/hyprland.nix
+        ./modules/apps/tmux.nix
+        ./modules/apps/nvf.nix
         ./modules/desktop/niri.nix
         ./modules/desktop/noctalia.nix
       ];
