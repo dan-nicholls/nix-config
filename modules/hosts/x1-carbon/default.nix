@@ -10,6 +10,7 @@
       self.nixosModules.devTools
       self.nixosModules.ghostty
       self.nixosModules.zen
+      self.nixosModules.capsEscSwap
     ];
   };
 }

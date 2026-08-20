@@ -33,6 +33,7 @@
         ./modules/desktop/noctalia.nix
         ./modules/common/dev.nix
         ./modules/desktop/ghostty.nix
+        ./modules/common/caps-swap-tty.nix
       ];
     };
   #(inputs.import-tree ./modules);
