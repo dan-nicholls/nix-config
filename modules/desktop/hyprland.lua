@@ -16,22 +16,22 @@ local laptop_display = {
 
 hl.monitor(laptop_display)
 
-function disableLaptopDisplay()
-    hl.monitor({
-        output = laptop_display.output,
-        disabled = true,
-    })
-end
-
-function enableLaptopDisplay()
-    hl.monitor(laptop_display)
-    --os.execute("hyprctl reload")
-end
+--function disableLaptopDisplay()
+--    hl.monitor({
+--        output = laptop_display.output,
+--        disabled = true,
+--    })
+--end
+--
+--function enableLaptopDisplay()
+--    hl.monitor(laptop_display)
+--    --os.execute("hyprctl reload")
+--end
 
 -- close lid
-hl.bind("switch:on:Lid Switch", disableLaptopDisplay, { locked = true })
+--hl.bind("switch:on:Lid Switch", disableLaptopDisplay, { locked = true })
 -- open lid
-hl.bind("switch:off:Lid Switch", enableLaptopDisplay, { locked = true })
+--hl.bind("switch:off:Lid Switch", enableLaptopDisplay, { locked = true })
 
 hl.config({
     input = {
