@@ -57,7 +57,7 @@ hl.bind(mod .. " + Q", hl.dsp.window.close())
 hl.bind(mod .. " + M", hl.dsp.exec_cmd("hyprctl dispatch exit"))
 hl.bind(mod .. " + F", hl.dsp.exec_cmd("hyprctl dispatch fullscreen"))
 hl.bind(mod .. " + R", hl.dsp.exec_cmd("noctalia-shell ipc call launcher toggle"))
-hl.bind(mod .. " + BackSpace", hl.dsp.exec_cmd("hyprlock"))
+hl.bind(mod .. " + BackSpace", hl.dsp.exec_cmd("noctalia-shell ipc call lockScreen lock"))
 
 -- Change Workspace
 hl.bind(mod .. " + 1", hl.dsp.focus({ workspace = 1 }))
