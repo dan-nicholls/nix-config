@@ -7,6 +7,7 @@
     modules = [
       self.nixosModules.x1-carbonConfiguration
       self.nixosModules.hyprland
+      self.nixosModules.noctaliaGreeter
       self.nixosModules.devTools
       self.nixosModules.ghostty
       self.nixosModules.zen

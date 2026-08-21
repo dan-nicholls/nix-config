@@ -8,6 +8,11 @@
 
     wrapper-modules.url = "github:BirdeeHub/nix-wrapper-modules";
 
+    noctalia-greeter = {
+      url = "github:noctalia-dev/noctalia-greeter";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     nvf = {
       url = "github:NotAShelf/nvf";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -26,6 +31,8 @@
         ./modules/hosts/x1-carbon/configuration.nix
         ./modules/hosts/x1-carbon/hardware-configuration.nix
         ./modules/desktop/hyprland.nix
+        ./modules/desktop/tuigreet.nix
+        ./modules/desktop/noctalia-greeter.nix
         ./modules/apps/tmux.nix
         ./modules/apps/nvf.nix
         ./modules/desktop/zen.nix
