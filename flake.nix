@@ -2,6 +2,7 @@
   description = "nixOS configuration";
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05";
+    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
 
     flake-parts.url = "github:hercules-ci/flake-parts";
     import-tree.url = "github:vic/import-tree";
@@ -41,6 +42,7 @@
         ./modules/common/dev.nix
         ./modules/desktop/ghostty.nix
         ./modules/common/caps-swap-tty.nix
+        ./modules/desktop/noctaliav5.nix
       ];
     };
   #(inputs.import-tree ./modules);
