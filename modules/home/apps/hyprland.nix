@@ -9,7 +9,7 @@
   wallpaper = ../../assets/backgrounds/2-forest.jpg;
 in {
   imports = [
-    ../apps/waybar
+    ./waybar
   ];
 
   home.packages = with pkgs; [
