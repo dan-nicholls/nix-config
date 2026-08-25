@@ -20,7 +20,6 @@
       gitcm = "git diff --staged | sgpt \"make me a very brief conventional commit message\" --code";
       glog = "git log --oneline -n 10 --color=always | cat";
       sp = "spotify_player";
-      nixrgl = "nix run --impure github:nix-community/nixGL --";
     };
 
     histSize = 5000;

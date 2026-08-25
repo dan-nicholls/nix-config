@@ -1,5 +1,4 @@
 {
-  config,
   pkgs,
   deviceName ? "x1-carbon",
   ...
@@ -7,7 +6,6 @@
   imports = [
     ../apps/ghostty.nix
     ../apps/zen.nix
-    ../common/nixgl.nix
     ../apps/hyprland.nix
   ];
 
@@ -30,7 +28,7 @@
 
   programs.anki = {
     enable = true;
-    package = config.lib.nixGL.wrap pkgs.anki;
+    package = pkgs.anki;
   };
 
   services.spotifyd = {
