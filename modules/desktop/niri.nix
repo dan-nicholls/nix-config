@@ -23,9 +23,9 @@
     packages.myNiri = inputs.wrapper-modules.wrappers.niri.wrap {
       inherit pkgs;
 
-      settings = {
-        spawn-at-startup = [
-          (lib.getExe self'.packages.myNoctalia)
+        settings = {
+          spawn-at-startup = [
+            (lib.getExe self'.packages.noctalia)
         ];
         xwayland-satellite.path = lib.getExe pkgs.xwayland-satellite;
 
@@ -36,7 +36,7 @@
         binds = {
           "Mod+Return".spawn-sh = lib.getExe pkgs.ghostty;
           "Mod+Q".close-window = _: {};
-          "Mod+R".spawn-sh = "${lib.getExe self'.packages.myNoctalia} ipc call launcher toggle";
+          "Mod+R".spawn-sh = "${lib.getExe self'.packages.noctalia} msg panel-toggle launcher";
         };
       };
     };
