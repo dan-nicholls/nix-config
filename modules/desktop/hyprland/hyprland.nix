@@ -19,10 +19,17 @@
       HandleLidSwitchDocked = "ignore";
     };
 
-    environment.systemPackages = [pkgs.hyprpaper];
+    environment.systemPackages = [
+      pkgs.hyprpaper
+      pkgs.bibata-cursors
+    ];
 
     environment.sessionVariables = {
       NIXOS_OZONE_WL = "1";
+      HYPRCURSOR_THEME = "Bibata-Modern-Classic";
+      HYPRCURSOR_SIZE = "28";
+      XCURSOR_THEME = "Bibata-Modern-Classic";
+      XCURSOR_SIZE = "28";
     };
 
     environment.etc."xdg/hypr/hyprland.lua".source = ./hyprland.lua;
