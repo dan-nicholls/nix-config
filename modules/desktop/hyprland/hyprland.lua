@@ -99,3 +99,11 @@ hl.bind(mod .. " + CTRL + H", hl.dsp.exec_cmd("hyprctl dispatch resizeactive -50
 hl.bind(mod .. " + CTRL + L", hl.dsp.exec_cmd("hyprctl dispatch resizeactive 50 0"))
 hl.bind(mod .. " + CTRL + K", hl.dsp.exec_cmd("hyprctl dispatch resizeactive 0 -50"))
 hl.bind(mod .. " + CTRL + J", hl.dsp.exec_cmd("hyprctl dispatch resizeactive 0 50"))
+
+-- Function keys
+hl.bind("XF86AudioMute", hl.dsp.exec_cmd("noctalia msg volume-mute"), { locked = true })
+hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("noctalia msg volume-down 5"), { locked = true })
+hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("noctalia msg volume-up 5"), { locked = true })
+hl.bind("XF86AudioMicMute", hl.dsp.exec_cmd("noctalia msg mic-mute"), { locked = true })
+hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("noctalia msg brightness-down current 5"), { locked = true })
+hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd("noctalia msg brightness-up current 5"), { locked = true })
