@@ -16,6 +16,13 @@ local laptop_display = {
 
 hl.monitor(laptop_display)
 
+local clamshell_file = os.getenv("HOME") .. "/.local/state/my-config/hypr/internal-monitor-clamshell.lua"
+
+local load_clamshell_config = loadfile(clamshell_file)
+if load_clamshell_config then
+    load_clamshell_config()
+end
+
 --function disableLaptopDisplay()
 --    hl.monitor({
 --        output = laptop_display.output,
@@ -29,9 +36,9 @@ hl.monitor(laptop_display)
 --end
 
 -- close lid
---hl.bind("switch:on:Lid Switch", disableLaptopDisplay, { locked = true })
+hl.bind("switch:on:Lid Switch", hl.dsp.exec_cmd("system-lid-close"), { locked = true })
 -- open lid
---hl.bind("switch:off:Lid Switch", enableLaptopDisplay, { locked = true })
+hl.bind("switch:off:Lid Switch", hl.dsp.exec_cmd("system-hyprland-monitor-clamshell"), { locked = true })
 
 hl.config({
     input = {
