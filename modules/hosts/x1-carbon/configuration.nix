@@ -82,6 +82,7 @@
       opencode
       terminus_font
       firefox
+      jq
     ];
 
     # Some programs need SUID wrappers, can be configured further or are
