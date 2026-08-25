@@ -13,7 +13,7 @@
       self.nixosModules.ghostty
       self.nixosModules.zen
       self.nixosModules.capsEscSwap
-      ../../desktop/system-lid-scripts.nix
+      self.nixosModules.lidScripts
     ];
   };
 }

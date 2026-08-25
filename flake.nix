@@ -31,16 +31,17 @@
         ./modules/hosts/x1-carbon/default.nix
         ./modules/hosts/x1-carbon/configuration.nix
         ./modules/hosts/x1-carbon/hardware-configuration.nix
-        ./modules/desktop/hyprland.nix
-        ./modules/desktop/tuigreet.nix
-        ./modules/desktop/noctalia-greeter.nix
+        ./modules/desktop/hyprland/lid.nix
+        ./modules/desktop/hyprland/hyprland.nix
+        ./modules/desktop/greeters/tuigreet.nix
+        ./modules/desktop/greeters/noctalia-greeter.nix
         ./modules/apps/tmux.nix
         ./modules/apps/nvf.nix
-        ./modules/desktop/zen.nix
-        ./modules/desktop/niri.nix
+        ./modules/desktop/apps/zen.nix
+        ./modules/desktop/niri/niri.nix
         ./modules/desktop/noctalia
         ./modules/common/dev.nix
-        ./modules/desktop/ghostty.nix
+        ./modules/desktop/apps/ghostty.nix
         ./modules/common/caps-swap-tty.nix
       ];
     };

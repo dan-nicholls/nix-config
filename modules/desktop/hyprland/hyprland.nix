@@ -4,7 +4,7 @@
   ...
 }: {
   flake.nixosModules.hyprland = {pkgs, ...}: let
-    wallpaper = ../../assets/backgrounds/2-forest.jpg;
+    wallpaper = ../../../assets/backgrounds/2-forest.jpg;
   in {
     programs.hyprland = {
       enable = true;
