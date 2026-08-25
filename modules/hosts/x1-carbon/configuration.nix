@@ -30,6 +30,15 @@
     # Enable networking
     networking.networkmanager.enable = true;
 
+    # Enable Bluetooth
+    hardware.bluetooth = {
+      enable = true;
+    };
+
+    # Enable power monitoring and profiles
+    services.upower.enable = true;
+    services.power-profiles-daemon.enable = true;
+
     # Set your time zone.
     time.timeZone = "Australia/Melbourne";
 
