@@ -30,6 +30,11 @@
     # Enable networking
     networking.networkmanager.enable = true;
 
+    desktop.noctalia = {
+      enable = true;
+      version = "v5";
+    };
+
     # Set your time zone.
     time.timeZone = "Australia/Melbourne";
 

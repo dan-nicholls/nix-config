@@ -3,7 +3,7 @@ local mod = "SUPER"
 hl.on("hyprland.start", function()
     --hl.exec_cmd("hyprpaper --config /etc/xdg/hypr/hyprpaper.conf")
     --hl.exec_cmd("waybar --config /etc/xdg/waybar/config --style /etc/xdg/waybar/style.css")
-    hl.exec_cmd("noctalia-shell")
+    hl.exec_cmd("noctalia-command start")
 end)
 
 local laptop_display = {
@@ -56,8 +56,8 @@ hl.bind(mod .. " + Return", hl.dsp.exec_cmd("ghostty"))
 hl.bind(mod .. " + Q", hl.dsp.window.close())
 hl.bind(mod .. " + M", hl.dsp.exec_cmd("hyprctl dispatch exit"))
 hl.bind(mod .. " + F", hl.dsp.exec_cmd("hyprctl dispatch fullscreen"))
-hl.bind(mod .. " + R", hl.dsp.exec_cmd("noctalia-shell ipc call launcher toggle"))
-hl.bind(mod .. " + BackSpace", hl.dsp.exec_cmd("noctalia-shell ipc call lockScreen lock"))
+hl.bind(mod .. " + R", hl.dsp.exec_cmd("noctalia-command launcher"))
+hl.bind(mod .. " + BackSpace", hl.dsp.exec_cmd("noctalia-command lock"))
 
 -- Change Workspace
 hl.bind(mod .. " + 1", hl.dsp.focus({ workspace = 1 }))

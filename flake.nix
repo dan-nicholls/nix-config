@@ -38,11 +38,10 @@
         ./modules/apps/nvf.nix
         ./modules/desktop/zen.nix
         ./modules/desktop/niri.nix
-        ./modules/desktop/noctalia.nix
+        ./modules/desktop/noctalia
         ./modules/common/dev.nix
         ./modules/desktop/ghostty.nix
         ./modules/common/caps-swap-tty.nix
-        ./modules/desktop/noctaliav5.nix
       ];
     };
   #(inputs.import-tree ./modules);

@@ -4,7 +4,6 @@
   ...
 }: {
   flake.nixosModules.hyprland = {pkgs, ...}: let
-    noctalia = self.packages.${pkgs.stdenv.hostPlatform.system}.myNoctalia;
     wallpaper = ../../assets/backgrounds/2-forest.jpg;
   in {
     programs.hyprland = {
@@ -20,7 +19,7 @@
       HandleLidSwitchDocked = "ignore";
     };
 
-    environment.systemPackages = [pkgs.hyprpaper noctalia];
+    environment.systemPackages = [pkgs.hyprpaper];
 
     environment.sessionVariables = {
       NIXOS_OZONE_WL = "1";
