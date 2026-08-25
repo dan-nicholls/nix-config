@@ -6,7 +6,7 @@
   ...
 }: let
   lockCmd = "/usr/bin/swaylock";
-  wallpaper = ../backgrounds/2-forest.jpg;
+  wallpaper = ../../assets/backgrounds/2-forest.jpg;
 in {
   imports = [
     ../apps/waybar
