@@ -14,6 +14,7 @@
     imports = [
       # Include the results of the hardware scan.
       self.nixosModules.x1-carbonHardware
+      self.nixosModules.secrets
     ];
 
     # Bootloader.
@@ -70,6 +71,9 @@
       extraGroups = ["networkmanager" "wheel"];
       packages = with pkgs; [];
     };
+
+    # SOPS Key File
+    sops.age.keyFile = "/home/dannicholls/.config/sops/age/keys.txt";
 
     # Allow unfree packages
     nixpkgs.config.allowUnfree = true;

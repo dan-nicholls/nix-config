@@ -22,6 +22,11 @@
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake";
     };
+
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs:
@@ -34,6 +39,7 @@
         ./modules/apps/nvf.nix
         ./modules/common/dev.nix
         ./modules/common/caps-swap-tty.nix
+        ./modules/common/secrets.nix
       ];
     };
   #(inputs.import-tree ./modules);
