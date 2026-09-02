@@ -9,6 +9,8 @@
 
     environment.systemPackages = [
       self.packages.${pkgs.stdenv.hostPlatform.system}.noctalia
+      pkgs.adw-gtk3
+      pkgs.qt6Packages.qt6ct
       (pkgs.writeShellScriptBin "noctalia-command" ''
         case "$1" in
           start) exec noctalia ;;

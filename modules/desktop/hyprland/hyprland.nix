@@ -30,6 +30,7 @@
       HYPRCURSOR_SIZE = "28";
       XCURSOR_THEME = "Bibata-Modern-Classic";
       XCURSOR_SIZE = "28";
+      QT_QPA_PLATFORMTHEME = "qt6ct";
     };
 
     environment.etc."xdg/hypr/hyprland.lua".source = ./hyprland.lua;
