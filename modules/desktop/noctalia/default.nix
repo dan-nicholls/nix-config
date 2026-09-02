@@ -4,6 +4,9 @@
   ...
 }: {
   flake.nixosModules.noctalia = {pkgs, ...}: {
+    # Create symlink to assets folder
+    environment.etc."noctalia/wallpaper".source = ../../../assets/backgrounds;
+
     environment.systemPackages = [
       self.packages.${pkgs.stdenv.hostPlatform.system}.noctalia
       (pkgs.writeShellScriptBin "noctalia-command" ''
