@@ -70,7 +70,9 @@
       isNormalUser = true;
       description = "Dan Nicholls";
       extraGroups = ["networkmanager" "wheel"];
-      packages = with pkgs; [];
+      packages = with pkgs; [
+        obsidian
+      ];
     };
 
     # SOPS Key File
