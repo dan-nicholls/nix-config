@@ -15,6 +15,7 @@
       # Include the results of the hardware scan.
       self.nixosModules.x1-carbonHardware
       self.nixosModules.secrets
+      self.nixosModules.x1-carbonSamba
     ];
 
     # Bootloader.
