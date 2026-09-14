@@ -61,8 +61,8 @@ hl.config({
 -- Basic Keybinds
 hl.bind(mod .. " + Return", hl.dsp.exec_cmd("ghostty"))
 hl.bind(mod .. " + Q", hl.dsp.window.close())
-hl.bind(mod .. " + M", hl.dsp.exec_cmd("hyprctl dispatch exit"))
-hl.bind(mod .. " + F", hl.dsp.exec_cmd("hyprctl dispatch fullscreen"))
+hl.bind(mod .. " + F", hl.dsp.window.fullscreen({ mode = "fullscreen", action = "toggle" }))
+hl.bind(mod .. " + M", hl.dsp.window.fullscreen({ mode = "maximized", action = "toggle" }))
 hl.bind(mod .. " + R", hl.dsp.exec_cmd("noctalia-command launcher"))
 hl.bind(mod .. " + BackSpace", hl.dsp.exec_cmd("noctalia-command lock"))
 
