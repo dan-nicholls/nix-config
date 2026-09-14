@@ -66,6 +66,9 @@ hl.bind(mod .. " + M", hl.dsp.window.fullscreen({ mode = "maximized", action = "
 hl.bind(mod .. " + R", hl.dsp.exec_cmd("noctalia-command launcher"))
 hl.bind(mod .. " + BackSpace", hl.dsp.exec_cmd("noctalia-command lock"))
 
+-- Screenshots
+hl.bind(mod .. "+ SHIFT + S", hl.dsp.exec_cmd("noctalia msg screenshot-region"))
+
 -- Change Workspace
 hl.bind(mod .. " + 1", hl.dsp.focus({ workspace = 1 }))
 hl.bind(mod .. " + 2", hl.dsp.focus({ workspace = 2 }))
