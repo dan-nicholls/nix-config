@@ -36,6 +36,7 @@
     swapDevices = [
       {device = "/dev/disk/by-uuid/75486431-2bbc-4103-b972-938dd3f3c945";}
     ];
+    boot.resumeDevice = "/dev/disk/by-uuid/75486431-2bbc-4103-b972-938dd3f3c945";
 
     nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
     hardware.cpu.intel.npu.enable = true;
