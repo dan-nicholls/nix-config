@@ -590,6 +590,16 @@ time_format = "{:%H:%M}"
         variant = "default"
 
         [[shell.session.actions]]
+        action = "command"
+        command = "systemctl hibernate"
+        countdown_seconds = 0.0
+        enabled = true
+        glyph = "hibernate"
+        label = "Hibernate"
+        shortcut = ""
+        variant = "default"
+
+        [[shell.session.actions]]
         action = "reboot"
         command = ""
         countdown_seconds = 0.0
@@ -660,12 +670,12 @@ community_palette = "Everforest"
 custom_palette = ""
 mode = "dark"
 pure_black_dark = false
-source = "builtin"
+source = "wallpaper"
 wallpaper_scheme = "m3-content"
 
     [theme.templates]
-    builtin_ids = []
-    community_ids = []
+    builtin_ids = [ "gtk3", "gtk4", "kcolorscheme", "qt" ]
+    community_ids = [ "obsidian" ]
     enable_builtin_templates = true
     enable_community_templates = true
 
@@ -683,7 +693,7 @@ transition_duration = 1500.0
 transition_on_startup = false
 
     [wallpaper.automation]
-    enabled = true 
+    enabled = true
     interval_seconds = 1800
     order = "random"
     recursive = true
