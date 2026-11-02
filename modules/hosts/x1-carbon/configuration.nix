@@ -84,13 +84,18 @@
     # Allow Flakes
     nix.settings.experimental-features = ["nix-command" "flakes"];
 
+    programs.opencode = {
+      enable = true;
+      user = "dannicholls";
+      skills = true;
+    };
+
     # List packages installed in system profile. To search, run:
     # $ nix search wget
     environment.systemPackages = with pkgs; [
       wget
       cifs-utils
       git
-      opencode
       terminus_font
       firefox
       jq

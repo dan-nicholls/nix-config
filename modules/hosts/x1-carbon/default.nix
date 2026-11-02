@@ -8,6 +8,7 @@
       self.nixosModules.x1-carbonConfiguration
       self.nixosModules.desktop
       self.nixosModules.devTools
+      self.nixosModules.opencode
       self.nixosModules.ghostty
       self.nixosModules.zen
       self.nixosModules.capsEscSwap

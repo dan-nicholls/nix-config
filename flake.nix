@@ -27,6 +27,7 @@
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
   };
 
   outputs = inputs:
@@ -37,6 +38,7 @@
         (inputs.import-tree ./modules/desktop)
         ./modules/apps/tmux.nix
         ./modules/apps/nvf.nix
+        ./modules/common/apps/opencode
         ./modules/common/dev.nix
         ./modules/common/caps-swap-tty.nix
         ./modules/common/secrets.nix
